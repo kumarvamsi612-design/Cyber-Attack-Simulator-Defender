@@ -17,6 +17,144 @@
 </head>
 
 <body>
+    <!-- =====================================================
+     LOGIN SCREEN
+     ===================================================== -->
+<div id="loginScreen" class="login-screen">
+
+    <div class="login-background">
+        <div class="login-glow login-glow-one"></div>
+        <div class="login-glow login-glow-two"></div>
+    </div>
+
+    <div class="login-card">
+
+        <div class="login-logo">
+            🛡️
+        </div>
+
+        <div class="login-badge">
+            <span class="login-status-dot"></span>
+            SECURE ACCESS
+        </div>
+
+        <h1>
+            Cyber Attack
+            <span>Time Machine</span>
+        </h1>
+
+        <p class="login-subtitle">
+            Cybersecurity Intelligence & Threat Analysis Platform
+        </p>
+
+        <form id="loginForm">
+
+            <div class="login-input-group">
+
+                <label for="loginUsername">
+                    Username
+                </label>
+
+                <div class="login-input-wrapper">
+                    <span>👤</span>
+
+                    <input
+                        type="text"
+                        id="loginUsername"
+                        placeholder="Enter your username"
+                        autocomplete="username"
+                        required
+                    >
+                </div>
+
+            </div>
+
+
+            <div class="login-input-group">
+
+                <label for="loginPassword">
+                    Password
+                </label>
+
+                <div class="login-input-wrapper">
+                    <span>🔐</span>
+
+                    <input
+                        type="password"
+                        id="loginPassword"
+                        placeholder="Enter your password"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                    <button
+                        type="button"
+                        id="togglePassword"
+                        class="password-toggle"
+                        aria-label="Show password"
+                    >
+                        👁️
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="login-options">
+
+                <label class="remember-me">
+                    <input
+                        type="checkbox"
+                        id="rememberMe"
+                    >
+                    <span>Remember me</span>
+                </label>
+
+                <span class="login-security">
+                    🔒 Protected Session
+                </span>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="login-button"
+            >
+                <span>🚀</span>
+                Sign In
+            </button>
+
+
+            <div
+                id="loginMessage"
+                class="login-message"
+            ></div>
+
+        </form>
+
+
+        <div class="login-divider">
+            <span>AUTHORIZED ACCESS</span>
+        </div>
+
+
+        <div class="login-footer">
+
+            <div>
+                🛡️ Secure Learning Environment
+            </div>
+
+            <div>
+                © 2026 Cyber Attack Time Machine
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
 
 <!-- =====================================================
      BACKGROUND MUSIC
@@ -36,7 +174,7 @@
      MAIN CONTAINER
      ===================================================== -->
 
-<div class="container">
+<div class="container" id="app">
 
 
     <!-- =================================================
@@ -115,14 +253,12 @@
 
             <div class="hero-buttons">
 
-                <button
-                    class="start-btn"
-                    onclick="showTimeline()"
-                >
-
-                    🚀 Start Exploring
-
-                </button>
+                <a
+                href="timeline.html"
+                class="start-btn"
+            >
+                🚀 Start Exploring
+            </a>
 
 
                 <a
@@ -483,19 +619,63 @@
                 </div>
 
 
+                <div class="filter-actions">
+
+                <button
+                    id="applyFilters"
+                    class="apply-filter-btn"
+                    type="button"
+                >
+                    🔎 Apply Filter
+                </button>
+
                 <button
                     id="resetFilters"
                     class="reset-filter-btn"
                     type="button"
                 >
-
-                    🔄 Reset Filters
-
+                    🔄 Reset
                 </button>
 
             </div>
 
+            </div>
+
         </div>
+        <!-- =================================================
+     FILTER RESULTS
+     ================================================= -->
+
+<div
+    id="filterResults"
+    class="filter-results"
+    style="display: none;"
+>
+
+    <div class="filter-results-header">
+
+        <div>
+            <span class="section-label">
+                FILTERED INTELLIGENCE
+            </span>
+
+            <h3>
+                🎯 Matching Cyber Attacks
+            </h3>
+        </div>
+
+        <span id="filterResultCount">
+            0 results
+        </span>
+
+    </div>
+
+    <div
+        id="filteredAttackCards"
+        class="filtered-attack-cards"
+    ></div>
+
+</div>
 
 
 
