@@ -318,7 +318,7 @@ function loadYearButtons() {
 
             stopAutoTimeline();
 
-            showAttack(year, true);
+            showAttack(year);
 
             document
                 .querySelectorAll("#yearButtons button")
@@ -1527,6 +1527,32 @@ document.addEventListener(
 
     }
 );
+// ======================================================
+// START EXPLORING
+// ======================================================
+
+function showTimeline() {
+
+    const timeline =
+        document.getElementById("timeline");
+
+    if (!timeline) {
+        return;
+    }
+
+    timeline.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+    // Highlight timeline briefly
+    timeline.classList.add("timeline-focused");
+
+    setTimeout(function () {
+        timeline.classList.remove("timeline-focused");
+    }, 1200);
+
+}
 
 
 // ======================================================
@@ -1543,3 +1569,989 @@ window.addEventListener(
 
     }
 );
+// ======================================================
+// LOGIN / SESSION MANAGEMENT
+// ======================================================
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const loginScreen =
+        document.getElementById("loginScreen");
+
+    const app =
+        document.getElementById("app");
+
+    const loginForm =
+        document.getElementById("loginForm");
+
+    const usernameInput =
+        document.getElementById("loginUsername");
+
+    const passwordInput =
+        document.getElementById("loginPassword");
+
+    const rememberMe =
+        document.getElementById("rememberMe");
+
+    const loginMessage =
+        document.getElementById("loginMessage");
+
+    const togglePassword =
+        document.getElementById("togglePassword");
+
+
+    // --------------------------------------------------
+    // DEMO LOGIN CREDENTIALS
+    // --------------------------------------------------
+
+    const DEMO_USERNAME = "admin";
+    const DEMO_PASSWORD = "Cyber@123";
+
+
+    // --------------------------------------------------
+    // CHECK EXISTING SESSION
+    // --------------------------------------------------
+
+    const loggedIn =
+        localStorage.getItem("cyberTimeMachineLoggedIn");
+
+    const sessionUser =
+        localStorage.getItem("cyberTimeMachineUser");
+
+
+    if (loggedIn === "true") {
+
+        showCyberDashboard(sessionUser);
+
+    } else {
+
+        showLoginScreen();
+
+    }
+
+
+    // --------------------------------------------------
+    // LOGIN FORM
+    // --------------------------------------------------
+
+    if (loginForm) {
+
+        loginForm.addEventListener(
+            "submit",
+            function (event) {
+
+                event.preventDefault();
+
+                const username =
+                    usernameInput.value.trim();
+
+                const password =
+                    passwordInput.value;
+
+
+                // Clear old message
+
+                loginMessage.textContent = "";
+
+                loginMessage.className =
+                    "login-message";
+
+
+                // Validation
+
+                if (!username || !password) {
+
+                    showLoginError(
+                        "Please enter your username and password."
+                    );
+
+                    return;
+
+                }
+
+
+                // Check credentials
+
+                if (
+                    username === DEMO_USERNAME &&
+                    password === DEMO_PASSWORD
+                ) {
+
+                    localStorage.setItem(
+                        "cyberTimeMachineLoggedIn",
+                        "true"
+                    );
+
+                    localStorage.setItem(
+                        "cyberTimeMachineUser",
+                        username
+                    );
+
+
+                    if (rememberMe.checked) {
+
+                        localStorage.setItem(
+                            "cyberTimeMachineRemember",
+                            "true"
+                        );
+
+                    }
+
+
+                    showLoginSuccess();
+
+                    setTimeout(function () {
+
+                        showCyberDashboard(username);
+
+                    }, 600);
+
+
+                } else {
+
+                    showLoginError(
+                        "Invalid username or password."
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    // --------------------------------------------------
+    // SHOW / HIDE PASSWORD
+    // --------------------------------------------------
+
+    if (togglePassword) {
+
+        togglePassword.addEventListener(
+            "click",
+            function () {
+
+                if (
+                    passwordInput.type ===
+                    "password"
+                ) {
+
+                    passwordInput.type =
+                        "text";
+
+                    togglePassword.textContent =
+                        "🙈";
+
+                    togglePassword.setAttribute(
+                        "aria-label",
+                        "Hide password"
+                    );
+
+                } else {
+
+                    passwordInput.type =
+                        "password";
+
+                    togglePassword.textContent =
+                        "👁️";
+
+                    togglePassword.setAttribute(
+                        "aria-label",
+                        "Show password"
+                    );
+
+                }
+
+            }
+        );
+
+    }
+
+
+    // --------------------------------------------------
+    // LOGIN SCREEN
+    // --------------------------------------------------
+
+    function showLoginScreen() {
+
+        if (loginScreen) {
+
+            loginScreen.style.display =
+                "flex";
+
+        }
+
+        if (app) {
+
+            app.style.display =
+                "none";
+
+        }
+
+        document.body.style.overflow =
+            "hidden";
+
+    }
+
+
+    // --------------------------------------------------
+    // DASHBOARD
+    // --------------------------------------------------
+
+    function showCyberDashboard(username) {
+
+        if (loginScreen) {
+
+            loginScreen.style.display =
+                "none";
+
+        }
+
+        if (app) {
+
+            app.style.display =
+                "block";
+
+        }
+
+        document.body.style.overflow =
+            "";
+
+        console.log(
+            "Cyber Attack Time Machine session started for:",
+            username || "User"
+        );
+
+    }
+
+
+    // --------------------------------------------------
+    // LOGIN SUCCESS
+    // --------------------------------------------------
+
+    function showLoginSuccess() {
+
+        loginMessage.textContent =
+            "✓ Authentication successful. Opening dashboard...";
+
+        loginMessage.className =
+            "login-message success";
+
+    }
+
+
+    // --------------------------------------------------
+    // LOGIN ERROR
+    // --------------------------------------------------
+
+    function showLoginError(message) {
+
+        loginMessage.textContent =
+            "⚠ " + message;
+
+        loginMessage.className =
+            "login-message error";
+
+        passwordInput.value = "";
+
+        passwordInput.focus();
+
+    }
+
+});
+// ======================================================
+// ATTACK FILTER SYSTEM
+// ======================================================
+
+function applyAttackFilters() {
+
+    const categoryFilter =
+        document.getElementById("categoryFilter");
+
+    const threatFilter =
+        document.getElementById("threatFilter");
+
+    const filterResults =
+        document.getElementById("filterResults");
+
+    const filteredAttackCards =
+        document.getElementById("filteredAttackCards");
+
+    const filterResultCount =
+        document.getElementById("filterResultCount");
+
+
+    if (
+        !categoryFilter ||
+        !threatFilter ||
+        !filterResults ||
+        !filteredAttackCards
+    ) {
+        return;
+    }
+
+
+    const selectedCategory =
+        categoryFilter.value.toLowerCase();
+
+    const selectedThreat =
+        threatFilter.value.toLowerCase();
+
+
+    const results =
+        Object.keys(attacks)
+            .filter(function (year) {
+
+                const data =
+                    attacks[year];
+
+                const category =
+                    (data.category || "")
+                        .toLowerCase();
+
+                const type =
+                    (data.type || "")
+                        .toLowerCase();
+
+                const threat =
+                    (data.threat || "")
+                        .toLowerCase();
+
+
+                // Category matching
+
+                const categoryMatch =
+                    selectedCategory === "all" ||
+                    category.includes(selectedCategory) ||
+                    type.includes(selectedCategory);
+
+
+                // Threat matching
+
+                const threatMatch =
+                    selectedThreat === "all" ||
+                    threat === selectedThreat;
+
+
+                return (
+                    categoryMatch &&
+                    threatMatch
+                );
+
+            });
+
+
+    // Show results section
+
+    filterResults.style.display =
+        "block";
+
+
+    // Update count
+
+    if (filterResultCount) {
+
+        filterResultCount.textContent =
+            results.length +
+            (
+                results.length === 1
+                    ? " result"
+                    : " results"
+            );
+
+    }
+
+
+    // No results
+
+    if (results.length === 0) {
+
+        filteredAttackCards.innerHTML = `
+
+            <div class="no-filter-results">
+
+                <div class="no-result-icon">
+                    🔍
+                </div>
+
+                <h3>
+                    No Matching Attacks
+                </h3>
+
+                <p>
+                    No historical attacks match
+                    the selected category and
+                    threat level.
+                </p>
+
+                <button
+                    onclick="resetAttackFilters()"
+                    class="reset-results-btn"
+                >
+                    🔄 Clear Filters
+                </button>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    // Create attack cards
+
+    filteredAttackCards.innerHTML =
+        results.map(function (year) {
+
+            const data =
+                attacks[year];
+
+            const threat =
+                data.threat || "MEDIUM";
+
+            const threatClass =
+                threat.toLowerCase();
+
+
+            return `
+
+                <article
+                    class="filtered-attack-card"
+                >
+
+                    <div
+                        class="filtered-card-top"
+                    >
+
+                        <span
+                            class="filtered-year"
+                        >
+                            ${year}
+                        </span>
+
+                        <span
+                            class="filtered-threat ${threatClass}"
+                        >
+                            ${threat}
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        ${data.title}
+                    </h3>
+
+
+                    <div
+                        class="filtered-meta"
+                    >
+
+                        <span>
+                            ⚔️ ${data.type}
+                        </span>
+
+                        <span>
+                            📂 ${data.category}
+                        </span>
+
+                    </div>
+
+
+                    <div
+                        class="filtered-summary"
+                    >
+
+                        <p>
+                            ${data.attack}
+                        </p>
+
+                    </div>
+
+
+                    <div
+                        class="filtered-card-actions"
+                    >
+
+                        <button
+                            onclick="showFilteredAttack('${year}')"
+                        >
+                            📖 View Full Analysis
+                        </button>
+
+                    </div>
+
+                </article>
+
+            `;
+
+        }).join("");
+
+
+    // Scroll to results
+
+    filterResults.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+}
+// ======================================================
+// VIEW FILTERED ATTACK
+// ======================================================
+
+function showFilteredAttack(year) {
+
+    stopAutoTimeline();
+
+    showAttack(
+        year,
+        true
+    );
+
+    const attackInfo =
+        document.getElementById("attackInfo");
+
+    if (attackInfo) {
+
+        setTimeout(function () {
+
+            attackInfo.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        }, 200);
+
+    }
+
+}
+// ======================================================
+// RESET FILTERS
+// ======================================================
+
+function resetAttackFilters() {
+
+    const categoryFilter =
+        document.getElementById("categoryFilter");
+
+    const threatFilter =
+        document.getElementById("threatFilter");
+
+    const filterResults =
+        document.getElementById("filterResults");
+
+    const filteredAttackCards =
+        document.getElementById("filteredAttackCards");
+
+
+    if (categoryFilter) {
+
+        categoryFilter.value =
+            "all";
+
+    }
+
+
+    if (threatFilter) {
+
+        threatFilter.value =
+            "all";
+
+    }
+
+
+    if (filterResults) {
+
+        filterResults.style.display =
+            "none";
+
+    }
+
+
+    if (filteredAttackCards) {
+
+        filteredAttackCards.innerHTML =
+            "";
+
+    }
+
+
+    // Restore all years
+
+    loadYearButtons();
+
+}
+// ======================================================
+// FILTER BUTTON EVENTS
+// ======================================================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        const applyButton =
+            document.getElementById(
+                "applyFilters"
+            );
+
+        const resetButton =
+            document.getElementById(
+                "resetFilters"
+            );
+
+
+        if (applyButton) {
+
+            applyButton.addEventListener(
+                "click",
+                applyAttackFilters
+            );
+
+        }
+
+
+        if (resetButton) {
+
+            resetButton.addEventListener(
+                "click",
+                resetAttackFilters
+            );
+
+        }
+
+    }
+);
+// ======================================================
+// MULTI-ATTACK YEAR VIEW
+// ======================================================
+
+function showYearAttacks(year) {
+
+    const attackInfo =
+        document.getElementById("attackInfo");
+
+    if (!attackInfo) {
+        return;
+    }
+
+
+    const data =
+        attacks[year];
+
+
+    if (!data) {
+
+        attackInfo.innerHTML = `
+
+            <div class="attack-card">
+
+                <h2>
+                    🚧 No Data Found
+                </h2>
+
+                <p>
+                    No major cyber attack
+                    data is available for ${year}.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    attackInfo.innerHTML = `
+
+        <div class="year-analysis">
+
+            <div class="year-analysis-header">
+
+                <span class="section-label">
+                    HISTORICAL INTELLIGENCE
+                </span>
+
+                <h2>
+                    🌐 Major Cyber Attacks — ${year}
+                </h2>
+
+                <p>
+                    Explore the major cybersecurity
+                    incident recorded for this period.
+                </p>
+
+            </div>
+
+
+            <div class="attack-card">
+
+                <div class="attack-card-header">
+
+                    <div>
+
+                        <span class="attack-year">
+                            ${year}
+                        </span>
+
+                        <h2>
+                            ${data.title}
+                        </h2>
+
+                    </div>
+
+                    <span
+                        class="filtered-threat ${(
+                            data.threat || "medium"
+                        ).toLowerCase()}"
+                    >
+                        ${data.threat || "MEDIUM"}
+                    </span>
+
+                </div>
+
+
+                <div class="attack-grid">
+
+
+                    <div>
+
+                        <h3>
+                            📅 When?
+                        </h3>
+
+                        <p>
+                            ${data.date}
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            ⚔️ Attack Type
+                        </h3>
+
+                        <p>
+                            ${data.type}
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            📂 Category
+                        </h3>
+
+                        <p>
+                            ${data.category}
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            🎯 Target
+                        </h3>
+
+                        <p>
+                            ${data.target}
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            🔥 What Was The Attack?
+                        </h3>
+
+                        <p>
+                            ${data.attack}
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            ❓ Why Was It Done?
+                        </h3>
+
+                        <p>
+                            ${data.why ||
+                            "The exact motivation is not clearly established in the available project data."}
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            📉 What Was The Loss?
+                        </h3>
+
+                        <p>
+                            ${data.loss}
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            💥 Impact
+                        </h3>
+
+                        <p>
+                            ${data.impact}
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            🚑 How Was It Stopped?
+                        </h3>
+
+                        <p>
+                            ${data.rescue}
+                        </p>
+
+                    </div>
+
+
+                    <div>
+
+                        <h3>
+                            🛡️ How Can We Prevent It?
+                        </h3>
+
+                        <p>
+                            ${data.prevention}
+                        </p>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- ATTACK STATISTICS -->
+
+                <div class="attack-statistics">
+
+                    <h3>
+                        📊 Attack Statistics
+                    </h3>
+
+                    <div
+                        class="attack-stat-grid"
+                    >
+
+                        <div
+                            class="attack-stat"
+                        >
+
+                            <span>
+                                Threat Level
+                            </span>
+
+                            <strong>
+                                ${data.threat}
+                            </strong>
+
+                        </div>
+
+
+                        <div
+                            class="attack-stat"
+                        >
+
+                            <span>
+                                Category
+                            </span>
+
+                            <strong>
+                                ${data.category}
+                            </strong>
+
+                        </div>
+
+
+                        <div
+                            class="attack-stat"
+                        >
+
+                            <span>
+                                Target
+                            </span>
+
+                            <strong>
+                                ${data.target}
+                            </strong>
+
+                        </div>
+
+
+                        <div
+                            class="attack-stat"
+                        >
+
+                            <span>
+                                Estimated Loss
+                            </span>
+
+                            <strong>
+                                ${data.loss}
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    `;
+
+
+    const currentYear =
+        document.getElementById(
+            "currentYear"
+        );
+
+
+    if (currentYear) {
+
+        currentYear.textContent =
+            "Currently exploring: " +
+            year +
+            " — " +
+            data.title;
+
+    }
+
+
+    updateProgress(year);
+
+}
