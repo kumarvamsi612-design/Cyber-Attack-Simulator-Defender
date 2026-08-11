@@ -1,0 +1,3214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Cyber Attack Timeline | Cyber Attack Time Machine
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <style>
+
+        /* =====================================================
+           TIMELINE PAGE
+           ===================================================== */
+
+        .timeline-page {
+
+            min-height: 100vh;
+
+            padding-bottom: 80px;
+
+        }
+
+
+        /* =====================================================
+           TOP NAVIGATION
+           ===================================================== */
+
+        .timeline-nav {
+
+            position: sticky;
+
+            top: 0;
+
+            z-index: 1000;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            padding: 18px 32px;
+
+            background:
+                rgba(5, 12, 27, 0.92);
+
+            border-bottom:
+                1px solid rgba(0, 217, 255, 0.18);
+
+            backdrop-filter: blur(18px);
+
+        }
+
+
+        .timeline-logo {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 10px;
+
+            color: #ffffff;
+
+            font-size: 18px;
+
+            font-weight: 700;
+
+        }
+
+
+        .timeline-logo-icon {
+
+            width: 38px;
+
+            height: 38px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 10px;
+
+            background:
+                rgba(0, 217, 255, 0.10);
+
+            border:
+                1px solid rgba(0, 217, 255, 0.25);
+
+        }
+
+
+        .back-home {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 7px;
+
+            padding: 9px 15px;
+
+            border:
+                1px solid rgba(0, 217, 255, 0.35);
+
+            border-radius: 9px;
+
+            color: #00d9ff;
+
+            text-decoration: none;
+
+            font-size: 13px;
+
+            font-weight: 600;
+
+            transition: 0.25s ease;
+
+        }
+
+
+        .back-home:hover {
+
+            background:
+                rgba(0, 217, 255, 0.08);
+
+            transform: translateY(-1px);
+
+        }
+
+
+        /* =====================================================
+           PAGE HEADER
+           ===================================================== */
+
+        .timeline-hero {
+
+            max-width: 1200px;
+
+            margin: 0 auto;
+
+            padding: 70px 25px 40px;
+
+            text-align: center;
+
+        }
+
+
+        .timeline-badge {
+
+            display: inline-flex;
+
+            align-items: center;
+
+            gap: 8px;
+
+            padding: 8px 15px;
+
+            border:
+                1px solid rgba(0, 217, 255, 0.3);
+
+            border-radius: 30px;
+
+            background:
+                rgba(0, 217, 255, 0.05);
+
+            color: #00d9ff;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 1.5px;
+
+        }
+
+
+        .timeline-badge-dot {
+
+            width: 8px;
+
+            height: 8px;
+
+            border-radius: 50%;
+
+            background: #22c55e;
+
+            box-shadow:
+                0 0 10px rgba(34, 197, 94, 0.6);
+
+        }
+
+
+        .timeline-hero h1 {
+
+            margin-top: 22px;
+
+            font-size: clamp(38px, 6vw, 64px);
+
+            line-height: 1.05;
+
+            color: #ffffff;
+
+        }
+
+
+        .timeline-hero h1 span {
+
+            color: #00d9ff;
+
+        }
+
+
+        .timeline-hero p {
+
+            max-width: 720px;
+
+            margin: 18px auto 0;
+
+            color: #8e9ab8;
+
+            font-size: 16px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =====================================================
+           MAIN CONTENT
+           ===================================================== */
+
+        .timeline-container {
+
+            width: min(1200px, calc(100% - 40px));
+
+            margin: 0 auto;
+
+        }
+
+
+        /* =====================================================
+           FILTER PANEL
+           ===================================================== */
+
+        .filter-panel-new {
+
+            margin-top: 20px;
+
+            padding: 24px;
+
+            border:
+                1px solid rgba(0, 217, 255, 0.16);
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(11, 24, 48, 0.90),
+                    rgba(7, 15, 32, 0.90)
+                );
+
+            box-shadow:
+                0 20px 50px rgba(0, 0, 0, 0.20);
+
+        }
+
+
+        .filter-top {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .filter-title {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+        }
+
+
+        .filter-icon {
+
+            width: 44px;
+
+            height: 44px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+
+            border-radius: 12px;
+
+            background:
+                rgba(0, 217, 255, 0.08);
+
+            font-size: 21px;
+
+        }
+
+
+        .filter-title h2 {
+
+            margin: 0;
+
+            color: #ffffff;
+
+            font-size: 20px;
+
+        }
+
+
+        .filter-title p {
+
+            margin-top: 4px;
+
+            color: #687692;
+
+            font-size: 12px;
+
+        }
+
+
+        .filter-status {
+
+            color: #22c55e;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .filter-controls-new {
+
+            display: grid;
+
+            grid-template-columns:
+                1fr 1fr auto auto;
+
+            gap: 14px;
+
+            align-items: end;
+
+        }
+
+
+        .filter-field {
+
+            display: flex;
+
+            flex-direction: column;
+
+            gap: 7px;
+
+        }
+
+
+        .filter-field label {
+
+            color: #9ca9c2;
+
+            font-size: 12px;
+
+            font-weight: 600;
+
+        }
+
+
+        .filter-field select {
+
+            width: 100%;
+
+            padding: 13px 14px;
+
+            border:
+                1px solid #2a3a5d;
+
+            border-radius: 10px;
+
+            outline: none;
+
+            background: #0b1429;
+
+            color: #ffffff;
+
+            cursor: pointer;
+
+        }
+
+
+        .filter-field select:focus {
+
+            border-color: #00d9ff;
+
+            box-shadow:
+                0 0 0 3px rgba(0, 217, 255, 0.07);
+
+        }
+
+
+        .apply-filter {
+
+            height: 44px;
+
+            padding: 0 20px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #00d9ff,
+                    #00bde5
+                );
+
+            color: #001018;
+
+            font-weight: 700;
+
+            cursor: pointer;
+
+            transition: 0.25s ease;
+
+        }
+
+
+        .apply-filter:hover {
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 8px 22px rgba(0, 217, 255, 0.22);
+
+        }
+
+
+        .reset-filter {
+
+            height: 44px;
+
+            padding: 0 18px;
+
+            border:
+                1px solid #2a3a5d;
+
+            border-radius: 10px;
+
+            background: transparent;
+
+            color: #9ca9c2;
+
+            cursor: pointer;
+
+            transition: 0.25s ease;
+
+        }
+
+
+        .reset-filter:hover {
+
+            border-color: #00d9ff;
+
+            color: #00d9ff;
+
+        }
+
+
+        /* =====================================================
+           YEAR TIMELINE
+           ===================================================== */
+
+        .timeline-wrapper {
+
+            margin-top: 35px;
+
+            padding: 28px 20px;
+
+            border:
+                1px solid #1d2d4d;
+
+            border-radius: 18px;
+
+            background:
+                rgba(8, 17, 35, 0.75);
+
+            overflow-x: auto;
+
+        }
+
+
+        .timeline-title {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 25px;
+
+        }
+
+
+        .timeline-title h2 {
+
+            color: #ffffff;
+
+            font-size: 21px;
+
+        }
+
+
+        .timeline-title span {
+
+            color: #687692;
+
+            font-size: 12px;
+
+        }
+
+
+        .years {
+
+            position: relative;
+
+            display: flex;
+
+            gap: 18px;
+
+            min-width: max-content;
+
+            padding:
+                25px 15px 15px;
+
+        }
+
+
+        .years::before {
+
+            content: "";
+
+            position: absolute;
+
+            left: 15px;
+
+            right: 15px;
+
+            top: 48px;
+
+            height: 2px;
+
+            background:
+                linear-gradient(
+                    90deg,
+                    rgba(0, 217, 255, 0.15),
+                    rgba(0, 217, 255, 0.7),
+                    rgba(0, 217, 255, 0.15)
+                );
+
+        }
+
+
+        .year-button {
+
+            position: relative;
+
+            z-index: 2;
+
+            min-width: 82px;
+
+            padding: 13px 12px;
+
+            border:
+                1px solid #26385f;
+
+            border-radius: 12px;
+
+            background: #0e1830;
+
+            color: #8f9bb5;
+
+            cursor: pointer;
+
+            font-size: 13px;
+
+            font-weight: 700;
+
+            transition: 0.25s ease;
+
+        }
+
+
+        .year-button::before {
+
+            content: "";
+
+            display: block;
+
+            width: 10px;
+
+            height: 10px;
+
+            margin: -20px auto 10px;
+
+            border:
+                2px solid #00d9ff;
+
+            border-radius: 50%;
+
+            background: #081225;
+
+        }
+
+
+        .year-button:hover {
+
+            color: #ffffff;
+
+            border-color: #00d9ff;
+
+            transform: translateY(-3px);
+
+        }
+
+
+        .year-button.active {
+
+            color: #001018;
+
+            background: #00d9ff;
+
+            border-color: #00d9ff;
+
+            box-shadow:
+                0 0 25px rgba(0, 217, 255, 0.22);
+
+        }
+
+
+        .year-button.active::before {
+
+            background: #00d9ff;
+
+        }
+
+
+        /* =====================================================
+           CURRENT SELECTION
+           ===================================================== */
+
+        .selection-bar {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-top: 25px;
+
+            padding: 17px 20px;
+
+            border:
+                1px solid rgba(0, 217, 255, 0.18);
+
+            border-radius: 12px;
+
+            background:
+                rgba(0, 217, 255, 0.035);
+
+        }
+
+
+        .selection-left {
+
+            display: flex;
+
+            align-items: center;
+
+            gap: 12px;
+
+        }
+
+
+        .selection-icon {
+
+            font-size: 22px;
+
+        }
+
+
+        .selection-left small {
+
+            display: block;
+
+            color: #687692;
+
+            font-size: 10px;
+
+            text-transform: uppercase;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .selection-left strong {
+
+            color: #ffffff;
+
+            font-size: 15px;
+
+        }
+
+
+        .attack-count {
+
+            color: #00d9ff;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+        }
+
+
+        /* =====================================================
+           ATTACK RESULTS
+           ===================================================== */
+
+        .results-section {
+
+            margin-top: 35px;
+
+        }
+
+
+        .results-header {
+
+            display: flex;
+
+            align-items: flex-end;
+
+            justify-content: space-between;
+
+            gap: 20px;
+
+            margin-bottom: 20px;
+
+        }
+
+
+        .results-header h2 {
+
+            margin-top: 5px;
+
+            color: #ffffff;
+
+            font-size: 28px;
+
+        }
+
+
+        .results-header p {
+
+            margin-top: 5px;
+
+            color: #687692;
+
+            font-size: 13px;
+
+        }
+
+
+        .results-count {
+
+            padding: 7px 12px;
+
+            border:
+                1px solid rgba(0, 217, 255, 0.22);
+
+            border-radius: 20px;
+
+            color: #00d9ff;
+
+            background:
+                rgba(0, 217, 255, 0.05);
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+        }
+
+
+        .attack-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    auto-fit,
+                    minmax(300px, 1fr)
+                );
+
+            gap: 20px;
+
+        }
+
+
+        .attack-card-new {
+
+            position: relative;
+
+            padding: 24px;
+
+            border:
+                1px solid #233557;
+
+            border-radius: 17px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    #101a31,
+                    #0b1428
+                );
+
+            transition: 0.25s ease;
+
+        }
+
+
+        .attack-card-new:hover {
+
+            transform: translateY(-5px);
+
+            border-color: rgba(0, 217, 255, 0.55);
+
+            box-shadow:
+                0 18px 40px rgba(0, 0, 0, 0.25);
+
+        }
+
+
+        .attack-card-top {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            margin-bottom: 18px;
+
+        }
+
+
+        .attack-year {
+
+            color: #00d9ff;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .threat-badge {
+
+            padding: 5px 9px;
+
+            border-radius: 20px;
+
+            font-size: 9px;
+
+            font-weight: 800;
+
+        }
+
+
+        .critical {
+
+            color: #ff6475;
+
+            background:
+                rgba(255, 70, 90, 0.09);
+
+            border:
+                1px solid rgba(255, 70, 90, 0.22);
+
+        }
+
+
+        .high {
+
+            color: #ffad5c;
+
+            background:
+                rgba(255, 150, 70, 0.09);
+
+            border:
+                1px solid rgba(255, 150, 70, 0.22);
+
+        }
+
+
+        .medium {
+
+            color: #facc15;
+
+            background:
+                rgba(250, 204, 21, 0.08);
+
+            border:
+                1px solid rgba(250, 204, 21, 0.20);
+
+        }
+
+
+        .low {
+
+            color: #4ade80;
+
+            background:
+                rgba(74, 222, 128, 0.08);
+
+            border:
+                1px solid rgba(74, 222, 128, 0.20);
+
+        }
+
+
+        .attack-card-new h3 {
+
+            margin-bottom: 10px;
+
+            color: #ffffff;
+
+            font-size: 20px;
+
+        }
+
+
+        .attack-type {
+
+            display: inline-block;
+
+            margin-bottom: 18px;
+
+            padding: 5px 9px;
+
+            border-radius: 7px;
+
+            background: #151f38;
+
+            color: #91a0bd;
+
+            font-size: 10px;
+
+        }
+
+
+        .attack-description {
+
+            color: #aeb9ce;
+
+            font-size: 13px;
+
+            line-height: 1.65;
+
+        }
+
+
+        .attack-card-footer {
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: space-between;
+
+            gap: 10px;
+
+            margin-top: 20px;
+
+            padding-top: 16px;
+
+            border-top:
+                1px solid #1d2b49;
+
+        }
+
+
+        .attack-target {
+
+            color: #687692;
+
+            font-size: 10px;
+
+        }
+
+
+        .view-attack {
+
+            padding: 9px 13px;
+
+            border:
+                1px solid #00d9ff;
+
+            border-radius: 8px;
+
+            background: transparent;
+
+            color: #00d9ff;
+
+            cursor: pointer;
+
+            font-size: 11px;
+
+            font-weight: 700;
+
+            transition: 0.2s ease;
+
+        }
+
+
+        .view-attack:hover {
+
+            background: #00d9ff;
+
+            color: #001018;
+
+        }
+
+
+        /* =====================================================
+           FULL ATTACK ANALYSIS
+           ===================================================== */
+
+        .analysis-section {
+
+            display: none;
+
+            margin-top: 35px;
+
+            padding: 28px;
+
+            border:
+                1px solid rgba(0, 217, 255, 0.20);
+
+            border-radius: 18px;
+
+            background:
+                linear-gradient(
+                    145deg,
+                    rgba(10, 22, 44, 0.96),
+                    rgba(7, 14, 29, 0.96)
+                );
+
+        }
+
+
+        .analysis-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: flex-start;
+
+            gap: 20px;
+
+            margin-bottom: 28px;
+
+        }
+
+
+        .analysis-year {
+
+            color: #00d9ff;
+
+            font-size: 12px;
+
+            font-weight: 700;
+
+            letter-spacing: 1px;
+
+        }
+
+
+        .analysis-header h2 {
+
+            margin-top: 7px;
+
+            color: #ffffff;
+
+            font-size: 30px;
+
+        }
+
+
+        .close-analysis {
+
+            padding: 8px 12px;
+
+            border:
+                1px solid #2b3b5c;
+
+            border-radius: 8px;
+
+            background: transparent;
+
+            color: #8996ae;
+
+            cursor: pointer;
+
+        }
+
+
+        .analysis-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(
+                    2,
+                    1fr
+                );
+
+            gap: 16px;
+
+        }
+
+
+        .analysis-box {
+
+            padding: 20px;
+
+            border:
+                1px solid #26385f;
+
+            border-radius: 12px;
+
+            background: #0e1830;
+
+        }
+
+
+        .analysis-box.full {
+
+            grid-column: 1 / -1;
+
+        }
+
+
+        .analysis-box h4 {
+
+            margin-bottom: 9px;
+
+            color: #00d9ff;
+
+            font-size: 13px;
+
+        }
+
+
+        .analysis-box p {
+
+            color: #aeb9ce;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+        }
+
+
+        /* =====================================================
+           GRAPHICAL ATTACK STATISTICS
+           ===================================================== */
+
+        .statistics-title {
+            margin: 30px 0 16px;
+            color: #ffffff;
+            font-size: 19px;
+        }
+
+        .attack-stat-dashboard {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 16px;
+        }
+
+        .stat-chart-card {
+            position: relative;
+            padding: 20px;
+            border: 1px solid #26385f;
+            border-radius: 14px;
+            background: linear-gradient(145deg, #101b34, #0b1428);
+            overflow: hidden;
+            transition: 0.25s ease;
+        }
+
+        .stat-chart-card:hover {
+            transform: translateY(-3px);
+            border-color: rgba(0, 217, 255, 0.55);
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.24);
+        }
+
+        .stat-chart-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            margin-bottom: 16px;
+        }
+
+        .stat-chart-header span {
+            color: #7f8da9;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .stat-chart-header strong {
+            color: #ffffff;
+            font-size: 13px;
+            text-align: right;
+        }
+
+        .severity-meter, .impact-bar {
+            width: 100%;
+            height: 12px;
+            border-radius: 20px;
+            background: #17233e;
+            overflow: hidden;
+        }
+
+        .severity-fill, .impact-fill {
+            height: 100%;
+            border-radius: 20px;
+            transition: width 0.8s ease;
+        }
+
+        .severity-fill.critical { background: linear-gradient(90deg, #ff465c, #ff1f3d); box-shadow: 0 0 15px rgba(255, 45, 70, 0.35); }
+        .severity-fill.high { background: linear-gradient(90deg, #ff9d4d, #ff6b35); }
+        .severity-fill.medium { background: linear-gradient(90deg, #facc15, #eab308); }
+        .severity-fill.low { background: linear-gradient(90deg, #4ade80, #22c55e); }
+
+        .severity-labels {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 8px;
+            color: #596781;
+            font-size: 9px;
+        }
+
+        .impact-fill {
+            background: linear-gradient(90deg, #00d9ff, #6366f1);
+            box-shadow: 0 0 14px rgba(0, 217, 255, 0.25);
+        }
+
+        .impact-points { display: flex; justify-content: space-between; margin-top: 9px; }
+        .impact-points span { width: 7px; height: 7px; border-radius: 50%; background: #31405f; }
+        .impact-points span:nth-child(-n+4) { background: #00d9ff; }
+        .stat-caption { margin-top: 10px; color: #596781; font-size: 10px; }
+
+        .category-card { display: flex; align-items: center; gap: 16px; }
+        .category-icon {
+            width: 54px; height: 54px; flex-shrink: 0;
+            display: flex; align-items: center; justify-content: center;
+            border-radius: 14px; background: rgba(0, 217, 255, 0.08);
+            border: 1px solid rgba(0, 217, 255, 0.18); font-size: 24px;
+        }
+        .stat-small-label { display: block; margin-bottom: 6px; color: #687692; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; }
+        .category-value { color: #ffffff; font-size: 15px; }
+
+        .method-visual { display: flex; align-items: center; justify-content: center; margin-top: 20px; }
+        .method-node {
+            width: 42px; height: 42px; display: flex; align-items: center; justify-content: center;
+            border: 1px solid rgba(0, 217, 255, 0.35); border-radius: 50%;
+            background: rgba(0, 217, 255, 0.08); font-size: 18px;
+        }
+        .method-line { width: 55px; height: 2px; position: relative; background: linear-gradient(90deg, #00d9ff, #6366f1); }
+        .method-line::after {
+            content: ""; position: absolute; right: 0; top: -3px; width: 7px; height: 7px;
+            border-radius: 50%; background: #00d9ff; box-shadow: 0 0 10px #00d9ff;
+        }
+
+        .overall-impact { grid-column: 1 / -1; display: flex; align-items: center; gap: 28px; }
+        .impact-circle {
+            width: 145px; height: 145px; flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+            border-radius: 50%; position: relative;
+            background: conic-gradient(#00d9ff 0deg, #6366f1 var(--severity-angle), #17233e var(--severity-angle), #17233e 360deg);
+        }
+        .impact-circle::before { content: ""; position: absolute; inset: 9px; border-radius: 50%; background: #0c172d; }
+        .impact-circle > div { position: relative; z-index: 2; text-align: center; }
+        .impact-circle strong { display: block; color: #ffffff; font-size: 25px; }
+        .impact-circle span { color: #687692; font-size: 9px; text-transform: uppercase; letter-spacing: 1px; }
+        .impact-info h4 { margin-bottom: 8px; color: #ffffff; font-size: 17px; }
+        .impact-info p { max-width: 600px; color: #7f8da9; font-size: 12px; line-height: 1.7; }
+
+        /* =====================================================
+           NO RESULTS
+           ===================================================== */
+
+        .no-results {
+
+            padding: 60px 20px;
+
+            text-align: center;
+
+            border:
+                1px dashed #304263;
+
+            border-radius: 16px;
+
+        }
+
+
+        .no-results-icon {
+
+            font-size: 42px;
+
+            margin-bottom: 10px;
+
+        }
+
+
+        .no-results h3 {
+
+            color: #ffffff;
+
+            margin-bottom: 7px;
+
+        }
+
+
+        .no-results p {
+
+            color: #687692;
+
+            font-size: 13px;
+
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+           ===================================================== */
+
+        @media (max-width: 850px) {
+
+            .filter-controls-new {
+
+                grid-template-columns:
+                    1fr 1fr;
+
+            }
+
+
+            .apply-filter,
+            .reset-filter {
+
+                width: 100%;
+
+            }
+
+
+            .analysis-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .analysis-box.full {
+
+                grid-column: auto;
+
+            }
+
+
+            .attack-stat-dashboard {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+        }
+
+
+        @media (max-width: 600px) {
+
+            .timeline-nav {
+
+                padding: 14px 16px;
+
+            }
+
+
+            .timeline-logo span {
+
+                display: none;
+
+            }
+
+
+            .timeline-hero {
+
+                padding-top: 45px;
+
+            }
+
+
+            .timeline-container {
+
+                width:
+                    min(
+                        100% - 24px,
+                        1200px
+                    );
+
+            }
+
+
+            .filter-controls-new {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .filter-top {
+
+                align-items: flex-start;
+
+                flex-direction: column;
+
+            }
+
+
+            .selection-bar {
+
+                align-items: flex-start;
+
+                flex-direction: column;
+
+            }
+
+
+            .results-header {
+
+                align-items: flex-start;
+
+                flex-direction: column;
+
+            }
+
+
+            .attack-stat-dashboard {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .analysis-header {
+
+                flex-direction: column;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="timeline-page">
+
+
+    <!-- =====================================================
+         NAVIGATION
+         ===================================================== -->
+
+    <nav class="timeline-nav">
+
+        <div class="timeline-logo">
+
+            <div class="timeline-logo-icon">
+                🛡️
+            </div>
+
+            <span>
+                Cyber Attack Time Machine
+            </span>
+
+        </div>
+
+
+        <a
+            href="index.html"
+            class="back-home"
+        >
+            ← Back to Home
+        </a>
+
+    </nav>
+
+
+
+    <!-- =====================================================
+         PAGE HEADER
+         ===================================================== -->
+
+    <header class="timeline-hero">
+
+        <div class="timeline-badge">
+
+            <span class="timeline-badge-dot"></span>
+
+            HISTORICAL CYBERSECURITY INTELLIGENCE
+
+        </div>
+
+
+        <h1>
+
+            Cyber Attack
+            <span>Timeline</span>
+
+        </h1>
+
+
+        <p>
+
+            Travel through the history of cybersecurity.
+            Select a year to investigate major attacks,
+            understand their causes and impact, and learn
+            how defenders responded.
+
+        </p>
+
+    </header>
+
+
+
+    <main class="timeline-container">
+
+
+        <!-- =================================================
+             FILTER
+             ================================================= -->
+
+        <section class="filter-panel-new">
+
+
+            <div class="filter-top">
+
+                <div class="filter-title">
+
+                    <div class="filter-icon">
+                        🎯
+                    </div>
+
+                    <div>
+
+                        <h2>
+                            Attack Intelligence Filter
+                        </h2>
+
+                        <p>
+                            Narrow historical incidents by
+                            attack category and threat level.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="filter-status">
+                    ● FILTER READY
+                </div>
+
+            </div>
+
+
+
+            <div class="filter-controls-new">
+
+
+                <div class="filter-field">
+
+                    <label for="yearFilter">
+                        📅 Year
+                    </label>
+
+                    <select id="yearFilter">
+
+                        <option value="all">
+                            All Years
+                        </option>
+
+                        <option value="1988">1988</option>
+                        <option value="1999">1999</option>
+                        <option value="2000">2000</option>
+                        <option value="2001">2001</option>
+                        <option value="2003">2003</option>
+                        <option value="2007">2007</option>
+                        <option value="2010">2010</option>
+                        <option value="2013">2013</option>
+                        <option value="2014">2014</option>
+                        <option value="2017">2017</option>
+                        <option value="2021">2021</option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="filter-field">
+
+                    <label for="attackTypeFilter">
+                        ⚔️ Attack Type
+                    </label>
+
+                    <select id="attackTypeFilter">
+
+                        <option value="all">
+                            All Attack Types
+                        </option>
+
+                        <option value="malware">
+                            Malware
+                        </option>
+
+                        <option value="ransomware">
+                            Ransomware
+                        </option>
+
+                        <option value="databreach">
+                            Data Breach
+                        </option>
+
+                        <option value="ddos">
+                            DDoS
+                        </option>
+
+                        <option value="phishing">
+                            Phishing
+                        </option>
+
+                        <option value="socialengineering">
+                            Social Engineering
+                        </option>
+
+                        <option value="criticalinfrastructure">
+                            Critical Infrastructure
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <div class="filter-field">
+
+                    <label for="threatFilter">
+                        🚨 Critical Level
+                    </label>
+
+                    <select id="threatFilter">
+
+                        <option value="all">
+                            All Levels
+                        </option>
+
+                        <option value="critical">
+                            🔴 Critical
+                        </option>
+
+                        <option value="high">
+                            🟠 High
+                        </option>
+
+                        <option value="medium">
+                            🟡 Medium
+                        </option>
+
+                        <option value="low">
+                            🟢 Low
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+
+                <button
+                    class="apply-filter"
+                    onclick="applyFilters()"
+                >
+                    🔎 Apply Filter
+                </button>
+
+
+                <button
+                    class="reset-filter"
+                    onclick="resetFilters()"
+                >
+                    ↻ Reset
+                </button>
+
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             YEAR TIMELINE
+             ================================================= -->
+
+        <section class="timeline-wrapper">
+
+
+            <div class="timeline-title">
+
+                <div>
+
+                    <span class="section-label">
+                        HISTORY
+                    </span>
+
+                    <h2>
+                        📅 Explore by Year
+                    </h2>
+
+                </div>
+
+
+                <span>
+                    Select a year
+                </span>
+
+            </div>
+
+
+
+            <div
+                class="years"
+                id="years"
+            ></div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             CURRENT SELECTION
+             ================================================= -->
+
+        <div class="selection-bar">
+
+
+            <div class="selection-left">
+
+                <div class="selection-icon">
+                    🕐
+                </div>
+
+                <div>
+
+                    <small>
+                        Current Timeline Position
+                    </small>
+
+                    <strong id="selectedYear">
+                        Select a year to begin
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="attack-count"
+                id="attackCount"
+            >
+                0 attacks
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- =================================================
+             RESULTS
+             ================================================= -->
+
+        <section class="results-section">
+
+
+            <div class="results-header">
+
+                <div>
+
+                    <span class="section-label">
+                        HISTORICAL INCIDENTS
+                    </span>
+
+                    <h2>
+                        Major Cyber Attacks
+                    </h2>
+
+                    <p>
+                        Select a year above to investigate
+                        major cybersecurity incidents.
+                    </p>
+
+                </div>
+
+
+                <span
+                    class="results-count"
+                    id="resultsCount"
+                >
+                    0 RESULTS
+                </span>
+
+            </div>
+
+
+
+            <div
+                class="attack-grid"
+                id="attackGrid"
+            ></div>
+
+
+        </section>
+
+
+
+        <!-- =================================================
+             FULL ANALYSIS
+             ================================================= -->
+
+        <section
+            class="analysis-section"
+            id="analysisSection"
+        ></section>
+
+
+    </main>
+
+</div>
+
+
+
+<script>
+
+/* =========================================================
+   CYBER ATTACK DATABASE
+
+   This structure supports MULTIPLE attacks in the same year.
+   We can keep expanding this database later.
+   ========================================================= */
+
+
+const attackDatabase = {
+
+
+    1988: [
+
+        {
+            title: "Morris Worm",
+            type: "malware",
+            typeName: "Malware / Computer Worm",
+            threat: "critical",
+
+            target: "Internet-connected Unix systems",
+
+            attack:
+                "The Morris Worm exploited weaknesses in network services and rapidly replicated across connected systems.",
+
+            why:
+                "It was created as an experiment to measure the size of the early Internet, but programming mistakes caused uncontrolled propagation.",
+
+            loss:
+                "Thousands of systems were affected and the incident caused significant disruption and recovery costs.",
+
+            impact:
+                "The worm demonstrated how quickly self-propagating malware could spread across interconnected systems.",
+
+            prevention:
+                "Secure configuration, vulnerability patching, network monitoring and limiting unnecessary services help prevent similar worm outbreaks.",
+
+            defense:
+                "Administrators isolated infected systems, cleaned affected machines and improved vulnerability management.",
+
+            statistics: {
+
+                affected: "6,000+ systems",
+                spread: "Rapid network propagation",
+                threat: "Critical",
+                category: "Malware"
+
+            }
+
+        }
+
+    ],
+
+
+
+    1999: [
+
+        {
+            title: "Melissa Virus",
+            type: "malware",
+            typeName: "Email Malware",
+
+            threat: "high",
+
+            target: "Email users and organizations",
+
+            attack:
+                "Melissa spread through Microsoft Word documents distributed through email and automatically sent itself to contacts.",
+
+            why:
+                "The malware was designed to propagate through trusted email relationships and automate further distribution.",
+
+            loss:
+                "Organizations experienced major email disruptions and system recovery costs.",
+
+            impact:
+                "Corporate email systems became overloaded and many organizations had to temporarily disable email services.",
+
+            prevention:
+                "Email attachment filtering, endpoint security, user awareness and macro restrictions can reduce this risk.",
+
+            defense:
+                "Organizations blocked malicious attachments and disabled affected mail systems while cleaning infected computers.",
+
+            statistics: {
+
+                affected: "Thousands of organizations",
+                spread: "Email-based propagation",
+                threat: "High",
+                category: "Malware"
+
+            }
+
+        }
+
+    ],
+
+
+
+    2000: [
+
+        {
+            title: "ILOVEYOU",
+            type: "malware",
+            typeName: "Email Worm",
+
+            threat: "critical",
+
+            target: "Email users worldwide",
+
+            attack:
+                "The ILOVEYOU worm spread through a malicious email attachment and used social engineering to encourage users to open it.",
+
+            why:
+                "The attack exploited human trust and the widespread use of email to achieve extremely rapid propagation.",
+
+            loss:
+                "Global damage and recovery costs reached billions of dollars.",
+
+            impact:
+                "Millions of computers were affected and files were overwritten or damaged.",
+
+            prevention:
+                "Attachment filtering, endpoint protection, macro controls and security awareness training can reduce similar attacks.",
+
+            defense:
+                "Organizations blocked the malicious attachment, updated email filters and cleaned infected systems.",
+
+            statistics: {
+
+                affected: "Millions of computers",
+                spread: "Global email propagation",
+                threat: "Critical",
+                category: "Malware"
+
+            }
+
+        }
+
+    ],
+
+
+
+    2001: [
+
+        {
+            title: "Code Red",
+            type: "malware",
+            typeName: "Internet Worm",
+
+            threat: "critical",
+
+            target: "Microsoft IIS web servers",
+
+            attack:
+                "Code Red exploited a vulnerability in Microsoft IIS servers and automatically scanned the Internet for additional vulnerable systems.",
+
+            why:
+                "The worm exploited unpatched Internet-facing servers to spread rapidly and disrupt services.",
+
+            loss:
+                "Organizations faced service disruption, emergency patching and recovery expenses.",
+
+            impact:
+                "Large numbers of web servers were compromised and Internet traffic increased significantly.",
+
+            prevention:
+                "Timely security patching, vulnerability scanning and reducing exposed services are key defenses.",
+
+            defense:
+                "Administrators applied Microsoft security patches and cleaned compromised servers.",
+
+            statistics: {
+
+                affected: "Hundreds of thousands of servers",
+                spread: "Internet scanning",
+                threat: "Critical",
+                category: "Malware"
+
+            }
+
+        }
+
+    ],
+
+
+
+    2003: [
+
+        {
+            title: "SQL Slammer",
+            type: "ddos",
+            typeName: "Worm / DDoS",
+
+            threat: "critical",
+
+            target: "Microsoft SQL Server systems",
+
+            attack:
+                "SQL Slammer exploited a vulnerability in Microsoft SQL Server and generated massive network scanning traffic.",
+
+            why:
+                "The worm was designed to exploit vulnerable database servers and propagate extremely quickly.",
+
+            loss:
+                "Network congestion caused service disruptions and significant recovery costs.",
+
+            impact:
+                "Internet performance was affected and several services experienced outages.",
+
+            prevention:
+                "Security patches, network segmentation, intrusion detection and vulnerability management help prevent similar incidents.",
+
+            defense:
+                "Organizations patched vulnerable systems and blocked malicious network traffic.",
+
+            statistics: {
+
+                affected: "Thousands of vulnerable systems",
+                spread: "Extremely rapid network scanning",
+                threat: "Critical",
+                category: "DDoS / Malware"
+
+            }
+
+        }
+
+    ],
+
+
+
+    2007: [
+
+        {
+            title: "Estonia Cyber Attacks",
+            type: "ddos",
+            typeName: "Distributed Denial of Service",
+
+            threat: "high",
+
+            target: "Government, banking and media services",
+
+            attack:
+                "Large-scale distributed denial-of-service attacks overwhelmed websites and online services.",
+
+            why:
+                "The attacks were associated with political tensions and were intended to disrupt online services.",
+
+            loss:
+                "Organizations faced service outages, operational disruption and mitigation costs.",
+
+            impact:
+                "Government, financial and media services became difficult or impossible to access.",
+
+            prevention:
+                "DDoS protection, traffic filtering, redundant infrastructure and coordinated incident response can reduce the impact.",
+
+            defense:
+                "Network providers and organizations filtered malicious traffic and strengthened infrastructure defenses.",
+
+            statistics: {
+
+                affected: "Government and financial services",
+                spread: "Distributed network traffic",
+                threat: "High",
+                category: "DDoS"
+
+            }
+
+        }
+
+    ],
+
+
+
+    2010: [
+
+        {
+            title: "Stuxnet",
+            type: "criticalinfrastructure",
+            typeName: "Industrial Control System Malware",
+
+            threat: "critical",
+
+            target: "Industrial Control Systems",
+
+            attack:
+                "Stuxnet was highly sophisticated malware designed to interfere with industrial control equipment and processes.",
+
+            why:
+                "The operation targeted industrial infrastructure and demonstrated the ability of malware to affect physical processes.",
+
+            loss:
+                "The incident required extensive investigation, remediation and infrastructure security improvements.",
+
+            impact:
+                "Industrial equipment and operational processes were disrupted.",
+
+            prevention:
+                "Network segmentation, application control, removable-media security, monitoring and specialized industrial security are important defenses.",
+
+            defense:
+                "Affected organizations investigated the malware, isolated systems and strengthened industrial control security.",
+
+            statistics: {
+
+                affected: "Industrial systems",
+                spread: "Targeted malware",
+                threat: "Critical",
+                category: "Critical Infrastructure"
+
+            }
+
+        }
+
+    ],
+
+
+
+    2013: [
+
+        {
+            title: "Target Data Breach",
+            type: "databreach",
+            typeName: "Retail Data Breach",
+
+            threat: "critical",
+
+            target: "Retail payment systems and customer data",
+
+            attack:
+                "Attackers gained access to a retailer's network and stole payment-card information and customer data.",
+
+            why:
+                "The attackers sought valuable financial information that could be monetized.",
+
+            loss:
+                "The organization faced major financial, legal and reputational costs.",
+
+            impact:
+                "Millions of payment cards and customer records were affected.",
+
+            prevention:
+                "Network segmentation, multi-factor authentication, endpoint monitoring and strong access controls can reduce breach risk.",
+
+            defense:
+                "The organization investigated the intrusion, removed malicious access and strengthened security controls.",
+
+            statistics: {
+
+                affected: "Millions of customer records",
+                spread: "Compromised retail network",
+                threat: "Critical",
+                category: "Data Breach"
+
+            }
+
+        }
+
+    ],
+
+
+
+    2014: [
+
+        {
+            title: "Sony Pictures Hack",
+            type: "databreach",
+            typeName: "Corporate Cyberattack",
+
+            threat: "critical",
+
+            target: "Sony Pictures Entertainment",
+
+            attack:
+                "Attackers compromised corporate systems, stole internal information and disrupted business operations.",
+
+            why:
+                "The attackers sought sensitive corporate information and aimed to disrupt the organization's operations.",
+
+            loss:
+                "The organization faced significant operational, financial and reputational damage.",
+
+            impact:
+                "Internal documents, employee information and confidential communications were exposed.",
+
+            prevention:
+                "Strong identity controls, network segmentation, endpoint monitoring, secure backups and incident response planning are essential.",
+
+            defense:
+                "Affected systems were investigated and rebuilt while compromised credentials and infrastructure were addressed.",
+
+            statistics: {
+
+                affected: "Corporate systems and data",
+                spread: "Internal network compromise",
+                threat: "Critical",
+                category: "Data Breach"
+
+            }
+
+        }
+
+    ],
+
+
+
+    2017: [
+
+        {
+            title: "WannaCry",
+            type: "ransomware",
+            typeName: "Ransomware",
+
+            threat: "critical",
+
+            target: "Windows computers worldwide",
+
+            attack:
+                "WannaCry encrypted files and demanded payment while spreading through vulnerable Windows systems.",
+
+            why:
+                "The attackers sought financial gain while exploiting a known Windows vulnerability.",
+
+            loss:
+                "Organizations suffered operational disruption, recovery expenses and lost productivity.",
+
+            impact:
+                "Healthcare, business and government organizations around the world experienced disruption.",
+
+            prevention:
+                "Security patching, offline backups, network segmentation, endpoint protection and least privilege are key defenses.",
+
+            defense:
+                "Organizations patched vulnerable systems, isolated infected machines and restored data from backups.",
+
+            statistics: {
+
+                affected: "200,000+ computers",
+                spread: "Network-based ransomware",
+                threat: "Critical",
+                category: "Ransomware"
+
+            }
+
+        }
+
+    ],
+
+
+
+    2021: [
+
+        {
+            title: "Colonial Pipeline Ransomware Attack",
+            type: "ransomware",
+            typeName: "Ransomware",
+
+            threat: "critical",
+
+            target: "Critical fuel infrastructure",
+
+            attack:
+                "A ransomware incident disrupted systems used by a major fuel pipeline operator.",
+
+            why:
+                "The attackers sought financial gain through ransomware extortion.",
+
+            loss:
+                "The incident caused operational disruption and significant response and recovery costs.",
+
+            impact:
+                "Fuel distribution operations were temporarily disrupted, creating wider supply concerns.",
+
+            prevention:
+                "MFA, network segmentation, privileged-access management, offline backups and continuous monitoring are important defenses.",
+
+            defense:
+                "The organization isolated affected systems and implemented incident-response and recovery procedures.",
+
+            statistics: {
+
+                affected: "Critical infrastructure",
+                spread: "Corporate network compromise",
+                threat: "Critical",
+                category: "Ransomware"
+
+            }
+
+        }
+
+    ]
+
+};
+
+
+/* =========================================================
+   STATE
+   ========================================================= */
+
+let selectedYear = null;
+
+
+/* =========================================================
+   CREATE YEAR BUTTONS
+   ========================================================= */
+
+function loadYears() {
+
+    const yearsContainer =
+        document.getElementById("years");
+
+    const years =
+        Object.keys(attackDatabase)
+            .sort(
+                (a, b) =>
+                    Number(a) - Number(b)
+            );
+
+
+    yearsContainer.innerHTML =
+        years.map(function (year) {
+
+            return `
+
+                <button
+                    class="year-button"
+                    onclick="selectYear(${year})"
+                    id="year-${year}"
+                >
+                    ${year}
+                </button>
+
+            `;
+
+        }).join("");
+
+}
+
+
+/* =========================================================
+   SELECT YEAR
+   ========================================================= */
+
+function selectYear(year) {
+
+    selectedYear =
+        Number(year);
+
+
+    document
+        .querySelectorAll(".year-button")
+        .forEach(function (button) {
+
+            button.classList.remove("active");
+
+        });
+
+
+    const selectedButton =
+        document.getElementById(
+            "year-" + year
+        );
+
+
+    if (selectedButton) {
+
+        selectedButton.classList.add(
+            "active"
+        );
+
+    }
+
+
+    document.getElementById(
+        "selectedYear"
+    ).textContent =
+        "Cyber attacks recorded in " +
+        year;
+
+
+    displayAttacks(
+        attackDatabase[year] || []
+    );
+
+}
+
+
+/* =========================================================
+   DISPLAY ATTACKS
+   ========================================================= */
+
+function displayAttacks(attacks) {
+
+    const grid =
+        document.getElementById(
+            "attackGrid"
+        );
+
+
+    const count =
+        document.getElementById(
+            "attackCount"
+        );
+
+
+    const resultsCount =
+        document.getElementById(
+            "resultsCount"
+        );
+
+
+    count.textContent =
+        attacks.length +
+        (
+            attacks.length === 1
+                ? " attack"
+                : " attacks"
+        );
+
+
+    resultsCount.textContent =
+        attacks.length +
+        " RESULTS";
+
+
+    if (attacks.length === 0) {
+
+        grid.innerHTML = `
+
+            <div class="no-results">
+
+                <div class="no-results-icon">
+                    🔍
+                </div>
+
+                <h3>
+                    No matching attacks
+                </h3>
+
+                <p>
+                    Try another year or change
+                    your filter selection.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    grid.innerHTML =
+        attacks.map(function (attack, index) {
+
+            return `
+
+                <article
+                    class="attack-card-new"
+                >
+
+                    <div
+                        class="attack-card-top"
+                    >
+
+                        <span
+                            class="attack-year"
+                        >
+                            ${selectedYear || "HISTORICAL"}
+                        </span>
+
+                        <span
+                            class="threat-badge ${attack.threat}"
+                        >
+                            ${attack.threat.toUpperCase()}
+                        </span>
+
+                    </div>
+
+
+                    <h3>
+                        ${attack.title}
+                    </h3>
+
+
+                    <span class="attack-type">
+                        ⚔️ ${attack.typeName}
+                    </span>
+
+
+                    <p class="attack-description">
+                        ${attack.attack}
+                    </p>
+
+
+                    <div
+                        class="attack-card-footer"
+                    >
+
+                        <span
+                            class="attack-target"
+                        >
+                            🎯 ${attack.target}
+                        </span>
+
+
+                        <button
+                            class="view-attack"
+                            onclick="showAnalysis(${selectedYear}, ${index})"
+                        >
+                            View Analysis →
+                        </button>
+
+                    </div>
+
+                </article>
+
+            `;
+
+        }).join("");
+
+}
+
+
+/* =========================================================
+   SHOW FULL ATTACK ANALYSIS
+   ========================================================= */
+
+function showAnalysis(year, index) {
+
+    const attack =
+        attackDatabase[year][index];
+
+
+    const section =
+        document.getElementById(
+            "analysisSection"
+        );
+
+
+    section.style.display =
+        "block";
+
+
+    section.innerHTML = `
+
+        <div class="analysis-header">
+
+            <div>
+
+                <span class="analysis-year">
+                    ${year} •
+                    ${attack.threat.toUpperCase()}
+                </span>
+
+                <h2>
+                    ${attack.title}
+                </h2>
+
+            </div>
+
+
+            <button
+                class="close-analysis"
+                onclick="closeAnalysis()"
+            >
+                ✕ Close
+            </button>
+
+        </div>
+
+
+        <div class="analysis-grid">
+
+
+            <div class="analysis-box">
+
+                <h4>
+                    ⚔️ What Was The Attack?
+                </h4>
+
+                <p>
+                    ${attack.attack}
+                </p>
+
+            </div>
+
+
+            <div class="analysis-box">
+
+                <h4>
+                    ❓ Why Was It Done?
+                </h4>
+
+                <p>
+                    ${attack.why}
+                </p>
+
+            </div>
+
+
+            <div class="analysis-box">
+
+                <h4>
+                    🎯 Who / What Was Targeted?
+                </h4>
+
+                <p>
+                    ${attack.target}
+                </p>
+
+            </div>
+
+
+            <div class="analysis-box">
+
+                <h4>
+                    📉 What Was The Loss?
+                </h4>
+
+                <p>
+                    ${attack.loss}
+                </p>
+
+            </div>
+
+
+            <div class="analysis-box full">
+
+                <h4>
+                    💥 What Was The Impact?
+                </h4>
+
+                <p>
+                    ${attack.impact}
+                </p>
+
+            </div>
+
+
+            <div class="analysis-box">
+
+                <h4>
+                    🚑 How Was It Stopped?
+                </h4>
+
+                <p>
+                    ${attack.defense}
+                </p>
+
+            </div>
+
+
+            <div class="analysis-box">
+
+                <h4>
+                    🛡️ How Can We Prevent It?
+                </h4>
+
+                <p>
+                    ${attack.prevention}
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+        <h3 class="statistics-title">
+            📊 Attack Statistics
+        </h3>
+
+
+        <div class="attack-stat-dashboard">
+
+            <!-- THREAT LEVEL -->
+            <div class="stat-chart-card">
+                <div class="stat-chart-header">
+                    <span>Threat Level</span>
+                    <strong>${attack.statistics.threat}</strong>
+                </div>
+
+                <div class="severity-meter">
+                    <div
+                        class="severity-fill ${attack.statistics.threat.toLowerCase()}"
+                        style="width: ${attack.statistics.threat === "Critical" ? "100%" : attack.statistics.threat === "High" ? "75%" : attack.statistics.threat === "Medium" ? "50%" : "25%"};"
+                    ></div>
+                </div>
+
+                <div class="severity-labels">
+                    <span>Low</span>
+                    <span>Medium</span>
+                    <span>High</span>
+                    <span>Critical</span>
+                </div>
+            </div>
+
+            <!-- AFFECTED SYSTEMS -->
+            <div class="stat-chart-card">
+                <div class="stat-chart-header">
+                    <span>Affected Systems</span>
+                    <strong>${attack.statistics.affected}</strong>
+                </div>
+
+                <div class="impact-visual">
+                    <div class="impact-bar">
+                        <div
+                            class="impact-fill"
+                            style="width: ${attack.statistics.threat === "Critical" ? "95%" : attack.statistics.threat === "High" ? "75%" : attack.statistics.threat === "Medium" ? "55%" : "30%"};"
+                        ></div>
+                    </div>
+
+                    <div class="impact-points">
+                        <span></span><span></span><span></span><span></span><span></span>
+                    </div>
+                </div>
+
+                <p class="stat-caption">Estimated scale of affected systems</p>
+            </div>
+
+            <!-- ATTACK CATEGORY -->
+            <div class="stat-chart-card category-card">
+                <div class="category-icon">⚔️</div>
+                <div>
+                    <span class="stat-small-label">Attack Category</span>
+                    <strong class="category-value">${attack.statistics.category}</strong>
+                </div>
+            </div>
+
+            <!-- ATTACK METHOD -->
+            <div class="stat-chart-card">
+                <div class="stat-chart-header">
+                    <span>Attack Method</span>
+                    <strong>${attack.statistics.spread}</strong>
+                </div>
+
+                <div class="method-visual">
+                    <div class="method-node">💻</div>
+                    <div class="method-line"></div>
+                    <div class="method-node">🌐</div>
+                    <div class="method-line"></div>
+                    <div class="method-node">🎯</div>
+                </div>
+            </div>
+
+            <!-- OVERALL IMPACT -->
+            <div class="stat-chart-card overall-impact">
+                <div
+                    class="impact-circle"
+                    style="--severity-angle: ${attack.statistics.threat === "Critical" ? "342deg" : attack.statistics.threat === "High" ? "270deg" : attack.statistics.threat === "Medium" ? "180deg" : "90deg"};"
+                >
+                    <div>
+                        <strong>${attack.statistics.threat === "Critical" ? "95" : attack.statistics.threat === "High" ? "75" : attack.statistics.threat === "Medium" ? "50" : "25"}%</strong>
+                        <span>Severity</span>
+                    </div>
+                </div>
+
+                <div class="impact-info">
+                    <h4>Overall Attack Impact</h4>
+                    <p>This visualization represents the relative severity and estimated scale of this historical cyber attack.</p>
+                </div>
+            </div>
+
+        </div>
+
+    `;
+
+
+    section.scrollIntoView({
+
+        behavior: "smooth",
+
+        block: "start"
+
+    });
+
+}
+
+
+/* =========================================================
+   CLOSE ANALYSIS
+   ========================================================= */
+
+function closeAnalysis() {
+
+    const section =
+        document.getElementById(
+            "analysisSection"
+        );
+
+
+    section.style.display =
+        "none";
+
+
+    section.innerHTML =
+        "";
+
+}
+
+
+/* =========================================================
+   FILTER
+   ========================================================= */
+
+function applyFilters() {
+
+    const year =
+        document.getElementById("yearFilter").value;
+
+    const type =
+        document.getElementById("attackTypeFilter").value;
+
+    const threat =
+        document.getElementById("threatFilter").value;
+
+    let results = [];
+
+    Object.keys(attackDatabase)
+        .forEach(function (yearKey) {
+
+            attackDatabase[yearKey]
+                .forEach(function (attack) {
+
+                    const yearMatch =
+                        year === "all" ||
+                        Number(yearKey) === Number(year);
+
+                    const typeMatch =
+                        type === "all" ||
+                        attack.type === type;
+
+                    const threatMatch =
+                        threat === "all" ||
+                        attack.threat === threat;
+
+                    if (
+                        yearMatch &&
+                        typeMatch &&
+                        threatMatch
+                    ) {
+
+                        results.push({
+
+                            year: Number(yearKey),
+
+                            attack: attack
+
+                        });
+
+                    }
+
+                });
+
+        });
+
+
+    selectedYear = null;
+
+    document
+        .querySelectorAll(".year-button")
+        .forEach(function (button) {
+
+            button.classList.remove("active");
+
+        });
+
+
+    document.getElementById(
+        "selectedYear"
+    ).textContent =
+        year === "all"
+            ? "Filtered historical results"
+            : "Filtered results for " + year;
+
+
+    const count =
+        document.getElementById(
+            "attackCount"
+        );
+
+
+    count.textContent =
+        results.length +
+        (
+            results.length === 1
+                ? " attack"
+                : " attacks"
+        );
+
+
+    document.getElementById(
+        "resultsCount"
+    ).textContent =
+        results.length +
+        " RESULTS";
+
+
+    const grid =
+        document.getElementById(
+            "attackGrid"
+        );
+
+
+    if (results.length === 0) {
+
+        grid.innerHTML = `
+
+            <div class="no-results">
+
+                <div class="no-results-icon">
+                    🔎
+                </div>
+
+                <h3>
+                    No Attacks Found
+                </h3>
+
+                <p>
+                    No historical attacks match
+                    your selected filters.
+                </p>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    grid.innerHTML =
+        results.map(function (item) {
+
+            const attack =
+                item.attack;
+
+            const index =
+                attackDatabase[item.year]
+                    .indexOf(attack);
+
+            return `
+
+                <article
+                    class="attack-card-new"
+                >
+
+                    <div
+                        class="attack-card-top"
+                    >
+
+                        <span
+                            class="attack-year"
+                        >
+                            ${item.year}
+                        </span>
+
+                        <span
+                            class="threat-badge ${attack.threat}"
+                        >
+                            ${attack.threat.toUpperCase()}
+                        </span>
+
+                    </div>
+
+                    <h3>
+                        ${attack.title}
+                    </h3>
+
+                    <span class="attack-type">
+                        ⚔️ ${attack.typeName}
+                    </span>
+
+                    <p class="attack-description">
+                        ${attack.attack}
+                    </p>
+
+                    <div
+                        class="attack-card-footer"
+                    >
+
+                        <span
+                            class="attack-target"
+                        >
+                            🎯 ${attack.target}
+                        </span>
+
+                        <button
+                            class="view-attack"
+                            onclick="showAnalysis(${item.year}, ${index})"
+                        >
+                            View Analysis →
+                        </button>
+
+                    </div>
+
+                </article>
+
+            `;
+
+        }).join("");
+
+
+    document
+        .querySelector(".results-section")
+        .scrollIntoView({
+
+            behavior: "smooth",
+
+            block: "start"
+
+        });
+
+}
+
+
+/* =========================================================
+   RESET FILTER
+   ========================================================= */
+
+function resetFilters() {
+
+    document.getElementById(
+        "yearFilter"
+    ).value = "all";
+
+    document.getElementById(
+        "attackTypeFilter"
+    ).value = "all";
+
+
+    document.getElementById(
+        "threatFilter"
+    ).value = "all";
+
+
+    closeAnalysis();
+
+
+    if (selectedYear) {
+
+        selectYear(selectedYear);
+
+    } else {
+
+        document.getElementById(
+            "selectedYear"
+        ).textContent =
+            "Select a year to begin";
+
+
+        document.getElementById(
+            "attackGrid"
+        ).innerHTML = "";
+
+
+        document.getElementById(
+            "attackCount"
+        ).textContent =
+            "0 attacks";
+
+
+        document.getElementById(
+            "resultsCount"
+        ).textContent =
+            "0 RESULTS";
+
+    }
+
+}
+
+
+/* =========================================================
+   INITIALIZE
+   ========================================================= */
+
+loadYears();
+
+
+/* Automatically show first available year */
+
+selectYear(
+    Number(
+        Object.keys(attackDatabase)[0]
+    )
+);
+
+</script>
+
+
+</body>
+
+</html>
