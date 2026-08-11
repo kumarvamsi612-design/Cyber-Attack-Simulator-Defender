@@ -1,0 +1,1445 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>🛡️ Cyber Attack Time Machine</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- =====================================================
+     BACKGROUND MUSIC
+     ===================================================== -->
+
+<audio id="bgMusic" loop preload="auto">
+
+    <source
+        src="audio/cyber-theme.mp3"
+        type="audio/mpeg"
+    >
+
+</audio>
+
+
+<!-- =====================================================
+     MAIN CONTAINER
+     ===================================================== -->
+
+<div class="container">
+
+
+    <!-- =================================================
+         TOP NAVIGATION
+         ================================================= -->
+
+    <nav class="top-nav">
+
+        <div class="logo">
+
+            🛡️
+
+            <span>
+                Cyber Attack Time Machine
+            </span>
+
+        </div>
+
+
+        <div class="nav-links">
+
+            <a href="#timeline">
+                Timeline
+            </a>
+
+            <a href="#statistics">
+                Statistics
+            </a>
+
+            <a href="#categories">
+                Categories
+            </a>
+
+            <a href="#future">
+                Future Threats
+            </a>
+
+            <a href="#about">
+                About
+            </a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =================================================
+         HERO HEADER
+         ================================================= -->
+
+    <header class="hero-section">
+
+        <div class="hero-content">
+
+            <div class="hero-badge">
+                🔴 CYBERSECURITY INTELLIGENCE SYSTEM
+            </div>
+
+
+            <h1>
+                🛡️ Cyber Attack
+                <span>Time Machine</span>
+            </h1>
+
+
+            <p class="subtitle">
+
+                Travel through cyber attack history,
+                understand what happened,
+                analyze the impact,
+                and learn how defenders responded.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <button
+                    class="start-btn"
+                    onclick="showTimeline()"
+                >
+
+                    🚀 Start Exploring
+
+                </button>
+
+
+                <a
+                    href="#about"
+                    class="learn-btn"
+                >
+
+                    📚 Learn More
+
+                </a>
+
+            </div>
+
+
+            <!-- HERO QUICK INFO -->
+
+            <div class="hero-highlights">
+
+                <div class="hero-highlight">
+
+                    <span>🌐</span>
+
+                    <strong>
+                        Historical Attacks
+                    </strong>
+
+                </div>
+
+
+                <div class="hero-highlight">
+
+                    <span>📊</span>
+
+                    <strong>
+                        Live Statistics
+                    </strong>
+
+                </div>
+
+
+                <div class="hero-highlight">
+
+                    <span>🎯</span>
+
+                    <strong>
+                        Threat Analysis
+                    </strong>
+
+                </div>
+
+
+                <div class="hero-highlight">
+
+                    <span>🧠</span>
+
+                    <strong>
+                        Security Learning
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =================================================
+         DASHBOARD OVERVIEW
+         ================================================= -->
+
+    <section class="dashboard-overview">
+
+        <div class="overview-card">
+
+            <span class="overview-icon">
+                🕒
+            </span>
+
+            <div>
+
+                <small>
+                    TIME PERIOD
+                </small>
+
+                <strong>
+                    1988 – 2025
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="overview-card">
+
+            <span class="overview-icon">
+                ⚔️
+            </span>
+
+            <div>
+
+                <small>
+                    ATTACK DATABASE
+                </small>
+
+                <strong id="overviewAttackCount">
+                    Historical
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="overview-card">
+
+            <span class="overview-icon">
+                🚨
+            </span>
+
+            <div>
+
+                <small>
+                    THREAT ANALYSIS
+                </small>
+
+                <strong>
+                    Critical / High
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="overview-card">
+
+            <span class="overview-icon">
+                🤖
+            </span>
+
+            <div>
+
+                <small>
+                    MODERN THREATS
+                </small>
+
+                <strong>
+                    AI + Ransomware
+                </strong>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =================================================
+         TIMELINE SECTION
+         ================================================= -->
+
+    <section
+        id="timeline"
+        class="timeline-section"
+    >
+
+
+        <!-- SECTION HEADER -->
+
+        <div class="section-heading">
+
+            <div>
+
+                <span class="section-label">
+                    HISTORY
+                </span>
+
+                <h2>
+                    🌐 Cyber Attack Timeline
+                </h2>
+
+                <p>
+                    Select a year to investigate a major
+                    cybersecurity incident.
+                </p>
+
+            </div>
+
+
+            <div class="timeline-status">
+
+                <span class="status-dot"></span>
+
+                SYSTEM ONLINE
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             SEARCH PANEL
+             ================================================= -->
+
+        <div class="search-panel">
+
+            <div class="search-title">
+
+                🔎
+
+                <div>
+
+                    <strong>
+                        Search Cyber Attacks
+                    </strong>
+
+                    <small>
+                        Search by year or attack name
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="searchYear"
+                    placeholder="Enter year or attack name..."
+                    autocomplete="off"
+                >
+
+
+                <button
+                    onclick="searchAttack()"
+                >
+
+                    🔍 Search
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             FILTER PANEL
+             ================================================= -->
+
+        <div class="filter-panel">
+
+            <div class="filter-header">
+
+                <div>
+
+                    <span class="section-label">
+                        ANALYSIS
+                    </span>
+
+                    <h3>
+                        🎯 Attack Filters
+                    </h3>
+
+                </div>
+
+
+                <span class="filter-note">
+                    Advanced filtering
+                </span>
+
+            </div>
+
+
+            <div class="filter-controls">
+
+
+                <div class="filter-group">
+
+                    <label for="categoryFilter">
+                        📂 Category
+                    </label>
+
+                    <select id="categoryFilter">
+
+                        <option value="all">
+                            All Categories
+                        </option>
+
+                        <option value="malware">
+                            Malware
+                        </option>
+
+                        <option value="ransomware">
+                            Ransomware
+                        </option>
+
+                        <option value="ddos">
+                            DDoS
+                        </option>
+
+                        <option value="social engineering">
+                            Social Engineering
+                        </option>
+
+                        <option value="critical infrastructure">
+                            Critical Infrastructure
+                        </option>
+
+                        <option value="data breach">
+                            Data Breach
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="filter-group">
+
+                    <label for="threatFilter">
+                        🚨 Threat Level
+                    </label>
+
+                    <select id="threatFilter">
+
+                        <option value="all">
+                            All Threat Levels
+                        </option>
+
+                        <option value="critical">
+                            🔴 Critical
+                        </option>
+
+                        <option value="high">
+                            🟠 High
+                        </option>
+
+                        <option value="medium">
+                            🟡 Medium
+                        </option>
+
+                        <option value="low">
+                            🟢 Low
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button
+                    id="resetFilters"
+                    class="reset-filter-btn"
+                    type="button"
+                >
+
+                    🔄 Reset Filters
+
+                </button>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             YEAR BUTTONS
+             ================================================= -->
+
+        <div class="year-section">
+
+            <div class="year-section-header">
+
+                <h3>
+                    📅 Explore by Year
+                </h3>
+
+                <span>
+                    Select an attack
+                </span>
+
+            </div>
+
+
+            <div
+                class="buttons"
+                id="yearButtons"
+            ></div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             TIMELINE PROGRESS
+             ================================================= -->
+
+        <div class="timeline-progress-wrapper">
+
+            <div class="progress-info">
+
+                <span>
+                    Timeline Progress
+                </span>
+
+                <span>
+                    <strong id="progressPercentage">
+                        0%
+                    </strong>
+                </span>
+
+            </div>
+
+
+            <div class="timeline-progress">
+
+                <div
+                    class="progress-bar"
+                    id="progressBar"
+                ></div>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             CURRENT YEAR
+             ================================================= -->
+
+        <div
+            class="current-year"
+            id="currentYear"
+        >
+
+            Select a year to explore
+
+        </div>
+
+
+
+        <!-- =================================================
+             AUTOMATIC TIMELINE CONTROLS
+             ================================================= -->
+
+        <div class="auto-controls">
+
+            <button
+                onclick="startAutoTimeline()"
+            >
+
+                ▶ Start Auto Timeline
+
+            </button>
+
+
+            <button
+                onclick="stopAutoTimeline()"
+            >
+
+                ⏹ Stop Timeline
+
+            </button>
+
+        </div>
+
+
+
+        <!-- =================================================
+             ATTACK INFORMATION
+             ================================================= -->
+
+        <div
+            id="attackInfo"
+            class="attack-information"
+        ></div>
+
+
+
+        <!-- =================================================
+             ATTACK COMPARISON AREA
+             ================================================= -->
+
+        <section
+            id="comparison"
+            class="comparison-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        INTELLIGENCE
+                    </span>
+
+                    <h2>
+                        ⚔️ Attack Comparison
+                    </h2>
+
+                    <p>
+                        Compare two historical cyber attacks
+                        and identify their differences.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="comparison-placeholder">
+
+                <div class="comparison-icon">
+                    ⚔️
+                </div>
+
+                <h3>
+                    Compare Cyber Attacks
+                </h3>
+
+                <p>
+                    Select two attacks to compare their
+                    targets, attack types, threat levels,
+                    impacts and defensive strategies.
+                </p>
+
+
+                <div class="comparison-selects">
+
+                    <select id="compareAttackOne">
+
+                        <option value="">
+                            Select Attack 1
+                        </option>
+
+                    </select>
+
+
+                    <span class="vs">
+                        VS
+                    </span>
+
+
+                    <select id="compareAttackTwo">
+
+                        <option value="">
+                            Select Attack 2
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <button
+                    id="compareButton"
+                    class="compare-btn"
+                    type="button"
+                >
+
+                    ⚔️ Compare Attacks
+
+                </button>
+
+            </div>
+
+
+            <div
+                id="comparisonResult"
+                class="comparison-result"
+            ></div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             CYBER ATTACK STATISTICS DASHBOARD
+             ================================================= -->
+
+        <section
+            id="statistics"
+            class="stats-dashboard"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        DATA ANALYSIS
+                    </span>
+
+                    <h2>
+                        📊 Cyber Attack Statistics
+                    </h2>
+
+                    <p class="stats-subtitle">
+                        Live statistics calculated from the
+                        attacks in this timeline.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="stats-grid">
+
+                <div class="stat-card">
+
+                    <div class="stat-icon">
+                        ⚔️
+                    </div>
+
+                    <h3>
+                        Total Attacks
+                    </h3>
+
+                    <p id="totalAttacks">
+                        0
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card critical">
+
+                    <div class="stat-icon">
+                        🔴
+                    </div>
+
+                    <h3>
+                        Critical Threats
+                    </h3>
+
+                    <p id="criticalAttacks">
+                        0
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card high">
+
+                    <div class="stat-icon">
+                        🟠
+                    </div>
+
+                    <h3>
+                        High Threats
+                    </h3>
+
+                    <p id="highAttacks">
+                        0
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card malware">
+
+                    <div class="stat-icon">
+                        🦠
+                    </div>
+
+                    <h3>
+                        Malware Attacks
+                    </h3>
+
+                    <p id="malwareAttacks">
+                        0
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card ransomware">
+
+                    <div class="stat-icon">
+                        💰
+                    </div>
+
+                    <h3>
+                        Ransomware
+                    </h3>
+
+                    <p id="ransomwareAttacks">
+                        0
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card ddos">
+
+                    <div class="stat-icon">
+                        🌐
+                    </div>
+
+                    <h3>
+                        DDoS Attacks
+                    </h3>
+
+                    <p id="ddosAttacks">
+                        0
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card social">
+
+                    <div class="stat-icon">
+                        🎣
+                    </div>
+
+                    <h3>
+                        Social Engineering
+                    </h3>
+
+                    <p id="socialAttacks">
+                        0
+                    </p>
+
+                </div>
+
+
+                <div class="stat-card infrastructure">
+
+                    <div class="stat-icon">
+                        🏭
+                    </div>
+
+                    <h3>
+                        Critical Infrastructure
+                    </h3>
+
+                    <p id="infrastructureAttacks">
+                        0
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ATTACK CATEGORY OVERVIEW
+             ================================================= -->
+
+        <section
+            id="categories"
+            class="category-overview"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        THREAT DISTRIBUTION
+                    </span>
+
+                    <h2>
+                        📊 Attack Category Overview
+                    </h2>
+
+                    <p class="category-subtitle">
+                        Visual comparison of major cyber
+                        attack categories.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="category-chart">
+
+                <div class="category-row">
+
+                    <span>
+                        🦠 Malware
+                    </span>
+
+                    <div class="category-bar-container">
+
+                        <div
+                            class="category-bar malware-bar"
+                            id="malwareBar"
+                        ></div>
+
+                    </div>
+
+                    <strong id="malwareCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="category-row">
+
+                    <span>
+                        🎣 Social Engineering
+                    </span>
+
+                    <div class="category-bar-container">
+
+                        <div
+                            class="category-bar social-bar"
+                            id="socialBar"
+                        ></div>
+
+                    </div>
+
+                    <strong id="socialCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="category-row">
+
+                    <span>
+                        🏭 Critical Infrastructure
+                    </span>
+
+                    <div class="category-bar-container">
+
+                        <div
+                            class="category-bar infrastructure-bar"
+                            id="infrastructureBar"
+                        ></div>
+
+                    </div>
+
+                    <strong id="infrastructureCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="category-row">
+
+                    <span>
+                        💰 Ransomware
+                    </span>
+
+                    <div class="category-bar-container">
+
+                        <div
+                            class="category-bar ransomware-bar"
+                            id="ransomwareBar"
+                        ></div>
+
+                    </div>
+
+                    <strong id="ransomwareCount">
+                        0
+                    </strong>
+
+                </div>
+
+
+                <div class="category-row">
+
+                    <span>
+                        🌐 DDoS
+                    </span>
+
+                    <div class="category-bar-container">
+
+                        <div
+                            class="category-bar ddos-bar"
+                            id="ddosBar"
+                        ></div>
+
+                    </div>
+
+                    <strong id="ddosCount">
+                        0
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ATTACK EVOLUTION
+             ================================================= -->
+
+        <section
+            id="evolution"
+            class="evolution-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        THREAT EVOLUTION
+                    </span>
+
+                    <h2>
+                        🧬 Evolution of Cyber Attacks
+                    </h2>
+
+                    <p>
+                        Cyber attacks have evolved from simple
+                        worms to highly sophisticated,
+                        automated and AI-assisted threats.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="evolution-timeline">
+
+                <div class="evolution-item">
+
+                    <span>
+                        1988
+                    </span>
+
+                    <strong>
+                        🪱 Internet Worms
+                    </strong>
+
+                    <p>
+                        Early attacks focused on automatic
+                        network propagation.
+                    </p>
+
+                </div>
+
+
+                <div class="evolution-item">
+
+                    <span>
+                        2000
+                    </span>
+
+                    <strong>
+                        📧 Email Malware
+                    </strong>
+
+                    <p>
+                        Attackers used email and social
+                        engineering to reach millions of users.
+                    </p>
+
+                </div>
+
+
+                <div class="evolution-item">
+
+                    <span>
+                        2010
+                    </span>
+
+                    <strong>
+                        🏭 Industrial Malware
+                    </strong>
+
+                    <p>
+                        Malware began targeting physical
+                        industrial systems.
+                    </p>
+
+                </div>
+
+
+                <div class="evolution-item">
+
+                    <span>
+                        2017
+                    </span>
+
+                    <strong>
+                        💰 Ransomware
+                    </strong>
+
+                    <p>
+                        Criminal groups increasingly used
+                        encryption for financial extortion.
+                    </p>
+
+                </div>
+
+
+                <div class="evolution-item">
+
+                    <span>
+                        2020
+                    </span>
+
+                    <strong>
+                        🔗 Supply Chain Attacks
+                    </strong>
+
+                    <p>
+                        Attackers compromised trusted software
+                        and service providers.
+                    </p>
+
+                </div>
+
+
+                <div class="evolution-item">
+
+                    <span>
+                        2024+
+                    </span>
+
+                    <strong>
+                        🤖 AI-Assisted Threats
+                    </strong>
+
+                    <p>
+                        AI can increase the scale and realism
+                        of phishing and other cyber attacks.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FUTURE CYBER THREATS
+             ================================================= -->
+
+        <section
+            id="future"
+            class="future-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        FUTURE SECURITY
+                    </span>
+
+                    <h2>
+                        🔮 Future Cyber Threats
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <p>
+
+                The cyber world continues to change.
+                New threats such as AI-powered phishing,
+                deepfakes, autonomous malware and attacks on
+                critical infrastructure may become more common.
+
+            </p>
+
+
+            <div class="future-threat-grid">
+
+                <div class="future-threat">
+
+                    <span>
+                        🤖
+                    </span>
+
+                    <h3>
+                        AI-Powered Attacks
+                    </h3>
+
+                    <p>
+                        AI may increase the speed and scale
+                        of cyber attacks.
+                    </p>
+
+                </div>
+
+
+                <div class="future-threat">
+
+                    <span>
+                        🎭
+                    </span>
+
+                    <h3>
+                        Deepfakes
+                    </h3>
+
+                    <p>
+                        Synthetic media may be used for
+                        impersonation and fraud.
+                    </p>
+
+                </div>
+
+
+                <div class="future-threat">
+
+                    <span>
+                        🏭
+                    </span>
+
+                    <h3>
+                        Infrastructure Attacks
+                    </h3>
+
+                    <p>
+                        Critical infrastructure remains an
+                        important security concern.
+                    </p>
+
+                </div>
+
+
+                <div class="future-threat">
+
+                    <span>
+                        🧬
+                    </span>
+
+                    <h3>
+                        Autonomous Malware
+                    </h3>
+
+                    <p>
+                        Automated systems could make attacks
+                        faster and harder to detect.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             ABOUT PROJECT
+             ================================================= -->
+
+        <section
+            id="about"
+            class="about-section"
+        >
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="section-label">
+                        PROJECT
+                    </span>
+
+                    <h2>
+                        ℹ️ About Cyber Attack Time Machine
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+            <div class="about-content">
+
+                <div class="about-card">
+
+                    <span>
+                        🎯
+                    </span>
+
+                    <h3>
+                        Project Goal
+                    </h3>
+
+                    <p>
+
+                        The Cyber Attack Time Machine is an
+                        interactive cybersecurity learning
+                        project designed to demonstrate how
+                        cyber threats have evolved over time.
+
+                    </p>
+
+                </div>
+
+
+                <div class="about-card">
+
+                    <span>
+                        🔍
+                    </span>
+
+                    <h3>
+                        What You Can Explore
+                    </h3>
+
+                    <p>
+
+                        Explore historical attacks, threat
+                        levels, targets, impacts, defensive
+                        responses and security lessons.
+
+                    </p>
+
+                </div>
+
+
+                <div class="about-card">
+
+                    <span>
+                        🛡️
+                    </span>
+
+                    <h3>
+                        Security Awareness
+                    </h3>
+
+                    <p>
+
+                        Understanding previous attacks helps
+                        security professionals recognize
+                        patterns and improve defensive
+                        strategies.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+    </section>
+
+
+
+    <!-- =================================================
+         FOOTER
+         ================================================= -->
+
+    <footer class="site-footer">
+
+        <div class="footer-logo">
+
+            🛡️ Cyber Attack Time Machine
+
+        </div>
+
+
+        <p>
+
+            Interactive Cybersecurity History &
+            Threat Intelligence Project
+
+        </p>
+
+
+        <div class="footer-line"></div>
+
+
+        <p class="footer-small">
+
+            Built for cybersecurity learning and
+            awareness.
+
+        </p>
+
+    </footer>
+
+
+</div>
+
+
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
