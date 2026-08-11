@@ -1790,3 +1790,1136 @@ a {
         width: 100%;
     }
 }
+/* =========================================================
+   LOGIN SCREEN
+   ========================================================= */
+
+.login-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 99999;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-height: 100vh;
+    padding: 25px;
+
+    background:
+        radial-gradient(
+            circle at 15% 20%,
+            rgba(0, 217, 255, 0.12),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 85% 80%,
+            rgba(179, 102, 255, 0.12),
+            transparent 30%
+        ),
+        #050816;
+
+    overflow-y: auto;
+}
+
+
+/* Background glow */
+
+.login-background {
+    position: absolute;
+    inset: 0;
+
+    overflow: hidden;
+    pointer-events: none;
+}
+
+.login-glow {
+    position: absolute;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    filter: blur(100px);
+}
+
+.login-glow-one {
+    top: -150px;
+    left: -100px;
+
+    background: rgba(0, 217, 255, 0.10);
+}
+
+.login-glow-two {
+    bottom: -150px;
+    right: -100px;
+
+    background: rgba(179, 102, 255, 0.10);
+}
+
+
+/* Login Card */
+
+.login-card {
+    position: relative;
+    z-index: 2;
+
+    width: 100%;
+    max-width: 450px;
+
+    padding: 42px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(11, 24, 48, 0.97),
+            rgba(7, 15, 32, 0.97)
+        );
+
+    border: 1px solid rgba(0, 217, 255, 0.25);
+    border-radius: 24px;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.55),
+        inset 0 0 40px rgba(0, 217, 255, 0.025);
+
+    backdrop-filter: blur(20px);
+
+    animation: loginCardAppear 0.6s ease;
+}
+
+
+@keyframes loginCardAppear {
+
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+
+}
+
+
+/* Logo */
+
+.login-logo {
+    width: 72px;
+    height: 72px;
+
+    margin: 0 auto 20px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 38px;
+
+    border-radius: 20px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 217, 255, 0.16),
+            rgba(179, 102, 255, 0.14)
+        );
+
+    border: 1px solid rgba(0, 217, 255, 0.25);
+
+    box-shadow:
+        0 0 35px rgba(0, 217, 255, 0.12);
+}
+
+
+/* Badge */
+
+.login-badge {
+    width: fit-content;
+
+    margin: 0 auto 16px;
+
+    padding: 6px 13px;
+
+    display: flex;
+    align-items: center;
+    gap: 8px;
+
+    border: 1px solid rgba(0, 217, 255, 0.3);
+    border-radius: 30px;
+
+    background: rgba(0, 217, 255, 0.06);
+
+    color: #00d9ff;
+
+    font-size: 11px;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+}
+
+
+.login-status-dot {
+    width: 8px;
+    height: 8px;
+
+    border-radius: 50%;
+
+    background: #22c55e;
+
+    box-shadow:
+        0 0 10px rgba(34, 197, 94, 0.7);
+
+    animation: loginPulse 1.8s infinite;
+}
+
+
+@keyframes loginPulse {
+
+    0%,
+    100% {
+        opacity: 1;
+    }
+
+    50% {
+        opacity: 0.4;
+    }
+
+}
+
+
+/* Heading */
+
+.login-card h1 {
+    margin-bottom: 10px;
+
+    text-align: center;
+
+    font-size: 32px;
+    line-height: 1.2;
+
+    color: #ffffff;
+}
+
+
+.login-card h1 span {
+    display: block;
+
+    color: #00d9ff;
+
+    text-shadow:
+        0 0 20px rgba(0, 217, 255, 0.25);
+}
+
+
+.login-subtitle {
+    margin-bottom: 30px;
+
+    text-align: center;
+
+    color: #8f9bb5;
+
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+/* Input groups */
+
+.login-input-group {
+    margin-bottom: 20px;
+}
+
+
+.login-input-group label {
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #dbe4f5;
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+.login-input-wrapper {
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    border: 1px solid rgba(130, 150, 190, 0.22);
+    border-radius: 12px;
+
+    background: rgba(3, 10, 24, 0.75);
+
+    transition: 0.25s ease;
+}
+
+
+.login-input-wrapper:focus-within {
+    border-color: #00d9ff;
+
+    box-shadow:
+        0 0 0 3px rgba(0, 217, 255, 0.08);
+}
+
+
+.login-input-wrapper > span {
+    padding-left: 14px;
+
+    font-size: 17px;
+
+    opacity: 0.8;
+}
+
+
+.login-input-wrapper input {
+    width: 100%;
+
+    padding: 14px 12px;
+
+    border: none;
+    outline: none;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    font-size: 14px;
+}
+
+
+.login-input-wrapper input::placeholder {
+    color: #64708a;
+}
+
+
+/* Password toggle */
+
+.password-toggle {
+    flex-shrink: 0;
+
+    margin-right: 8px;
+
+    padding: 7px;
+
+    border: none;
+    border-radius: 7px;
+
+    background: transparent;
+
+    color: #8f9bb5;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.password-toggle:hover {
+    background: rgba(0, 217, 255, 0.08);
+    color: #00d9ff;
+}
+
+
+/* Login options */
+
+.login-options {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    margin: 5px 0 22px;
+
+    font-size: 12px;
+}
+
+
+.remember-me {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+
+    color: #8f9bb5;
+
+    cursor: pointer;
+}
+
+
+.remember-me input {
+    accent-color: #00d9ff;
+
+    cursor: pointer;
+}
+
+
+.login-security {
+    color: #64708a;
+}
+
+
+/* Login button */
+
+.login-button {
+    width: 100%;
+
+    padding: 14px 18px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    border: none;
+    border-radius: 12px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #00d9ff,
+            #00bde5
+        );
+
+    color: #001018;
+
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow:
+        0 10px 28px rgba(0, 217, 255, 0.18);
+
+    transition: 0.25s ease;
+}
+
+
+.login-button:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 14px 35px rgba(0, 217, 255, 0.28);
+}
+
+
+.login-button:active {
+    transform: translateY(0);
+}
+
+
+/* Login message */
+
+.login-message {
+    min-height: 20px;
+
+    margin-top: 13px;
+
+    text-align: center;
+
+    font-size: 13px;
+}
+
+
+.login-message.error {
+    color: #ff6b81;
+}
+
+
+.login-message.success {
+    color: #42e695;
+}
+
+
+/* Divider */
+
+.login-divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    margin: 28px 0 18px;
+
+    color: #526079;
+
+    font-size: 9px;
+    letter-spacing: 1.5px;
+}
+
+
+.login-divider::before,
+.login-divider::after {
+    content: "";
+
+    flex: 1;
+
+    height: 1px;
+
+    background: rgba(130, 150, 190, 0.15);
+}
+
+
+/* Footer */
+
+.login-footer {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+
+    text-align: center;
+
+    color: #526079;
+
+    font-size: 10px;
+}
+
+
+/* =========================================================
+   LOGIN RESPONSIVE DESIGN
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+    .login-screen {
+        padding: 15px;
+    }
+
+    .login-card {
+        padding: 30px 22px;
+
+        border-radius: 20px;
+    }
+
+    .login-card h1 {
+        font-size: 27px;
+    }
+
+    .login-options {
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .login-security {
+        text-align: right;
+    }
+
+}
+/* =========================================================
+   FILTER ACTIONS
+   ========================================================= */
+
+.filter-actions {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+
+.apply-filter-btn {
+    padding: 11px 18px;
+
+    border: 1px solid #00d9ff;
+    border-radius: 9px;
+
+    background: #00d9ff;
+    color: #001018;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition: 0.2s ease;
+}
+
+
+.apply-filter-btn:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 217, 255, 0.25);
+}
+
+
+.reset-filter-btn {
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   FILTER RESULTS
+   ========================================================= */
+
+.filter-results {
+    margin: 25px 0;
+
+    padding: 25px;
+
+    border-radius: 18px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(0, 217, 255, 0.035),
+            rgba(179, 102, 255, 0.035)
+        );
+
+    border: 1px solid #26385f;
+
+    animation: fadeIn 0.4s ease;
+}
+
+
+.filter-results-header {
+    display: flex;
+
+    align-items: center;
+    justify-content: space-between;
+
+    margin-bottom: 20px;
+}
+
+
+.filter-results-header h3 {
+    margin-top: 5px;
+
+    font-size: 24px;
+
+    color: #ffffff;
+}
+
+
+#filterResultCount {
+    padding: 7px 12px;
+
+    border-radius: 20px;
+
+    background: rgba(0, 217, 255, 0.08);
+
+    border: 1px solid rgba(0, 217, 255, 0.25);
+
+    color: #00d9ff;
+
+    font-size: 12px;
+
+    font-weight: bold;
+}
+
+
+/* =========================================================
+   FILTERED ATTACK CARDS
+   ========================================================= */
+
+.filtered-attack-cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(280px, 1fr)
+        );
+
+    gap: 18px;
+}
+
+
+.filtered-attack-card {
+
+    padding: 22px;
+
+    border-radius: 15px;
+
+    background: #10182d;
+
+    border: 1px solid #26385f;
+
+    transition: 0.25s ease;
+
+}
+
+
+.filtered-attack-card:hover {
+
+    transform: translateY(-5px);
+
+    border-color: #00d9ff;
+
+    box-shadow:
+        0 12px 30px rgba(0, 217, 255, 0.10);
+
+}
+
+
+.filtered-card-top {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    margin-bottom: 15px;
+
+}
+
+
+.filtered-year {
+
+    color: #00d9ff;
+
+    font-size: 14px;
+
+    font-weight: bold;
+
+}
+
+
+.filtered-threat {
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    font-size: 10px;
+
+    font-weight: bold;
+
+}
+
+
+.filtered-threat.critical {
+
+    color: #ff5c6c;
+
+    background: rgba(255, 60, 80, 0.10);
+
+    border: 1px solid rgba(255, 60, 80, 0.25);
+
+}
+
+
+.filtered-threat.high {
+
+    color: #ff9d4d;
+
+    background: rgba(255, 140, 60, 0.10);
+
+    border: 1px solid rgba(255, 140, 60, 0.25);
+
+}
+
+
+.filtered-threat.medium {
+
+    color: #facc15;
+
+    background: rgba(250, 204, 21, 0.08);
+
+    border: 1px solid rgba(250, 204, 21, 0.20);
+
+}
+
+
+.filtered-threat.low {
+
+    color: #4ade80;
+
+    background: rgba(74, 222, 128, 0.08);
+
+    border: 1px solid rgba(74, 222, 128, 0.20);
+
+}
+
+
+.filtered-attack-card h3 {
+
+    margin-bottom: 12px;
+
+    color: #ffffff;
+
+    font-size: 19px;
+
+}
+
+
+.filtered-meta {
+
+    display: flex;
+
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 15px;
+
+}
+
+
+.filtered-meta span {
+
+    padding: 5px 8px;
+
+    border-radius: 7px;
+
+    background: #151f38;
+
+    color: #9ba8c3;
+
+    font-size: 10px;
+
+}
+
+
+.filtered-summary {
+
+    min-height: 65px;
+
+    color: #b8c1d9;
+
+    font-size: 13px;
+
+    line-height: 1.6;
+
+}
+
+
+.filtered-card-actions {
+
+    margin-top: 18px;
+
+}
+
+
+.filtered-card-actions button {
+
+    width: 100%;
+
+    padding: 10px 14px;
+
+    border: 1px solid #00d9ff;
+
+    border-radius: 9px;
+
+    background: transparent;
+
+    color: #00d9ff;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+    transition: 0.2s ease;
+
+}
+
+
+.filtered-card-actions button:hover {
+
+    background: #00d9ff;
+
+    color: #001018;
+
+}
+
+
+/* =========================================================
+   NO FILTER RESULTS
+   ========================================================= */
+
+.no-filter-results {
+
+    padding: 50px 20px;
+
+    text-align: center;
+
+    border: 1px dashed #394568;
+
+    border-radius: 15px;
+
+}
+
+
+.no-result-icon {
+
+    font-size: 40px;
+
+    margin-bottom: 10px;
+
+}
+
+
+.no-filter-results h3 {
+
+    margin-bottom: 8px;
+
+    color: #ffffff;
+
+}
+
+
+.no-filter-results p {
+
+    color: #7f8ca8;
+
+    margin-bottom: 20px;
+
+}
+
+
+.reset-results-btn {
+
+    padding: 10px 18px;
+
+    border: 1px solid #00d9ff;
+
+    border-radius: 9px;
+
+    background: #00d9ff;
+
+    color: #001018;
+
+    cursor: pointer;
+
+    font-weight: bold;
+
+}
+
+
+/* =========================================================
+   YEAR ANALYSIS
+   ========================================================= */
+
+.year-analysis-header {
+
+    margin-top: 25px;
+
+    margin-bottom: 10px;
+
+    text-align: center;
+
+}
+
+
+.year-analysis-header h2 {
+
+    margin-top: 8px;
+
+    font-size: 30px;
+
+}
+
+
+.year-analysis-header p {
+
+    margin-top: 8px;
+
+    color: #8e9ab8;
+
+}
+
+
+/* =========================================================
+   ATTACK CARD HEADER
+   ========================================================= */
+
+.attack-card-header {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    justify-content: space-between;
+
+    gap: 20px;
+
+    margin-bottom: 25px;
+
+}
+
+
+.attack-card-header h2 {
+
+    text-align: left;
+
+    margin: 7px 0 0;
+
+}
+
+
+.attack-year {
+
+    color: #00d9ff;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    letter-spacing: 1px;
+
+}
+
+
+/* =========================================================
+   ATTACK STATISTICS
+   ========================================================= */
+
+.attack-statistics {
+
+    margin-top: 28px;
+
+    padding: 22px;
+
+    border-radius: 15px;
+
+    background: rgba(0, 217, 255, 0.025);
+
+    border: 1px solid rgba(0, 217, 255, 0.18);
+
+}
+
+
+.attack-statistics h3 {
+
+    margin-bottom: 18px;
+
+    color: #00d9ff;
+
+}
+
+
+.attack-stat-grid {
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(
+            auto-fit,
+            minmax(180px, 1fr)
+        );
+
+    gap: 12px;
+
+}
+
+
+.attack-stat {
+
+    padding: 15px;
+
+    border-radius: 10px;
+
+    background: #111a32;
+
+    border: 1px solid #26385f;
+
+}
+
+
+.attack-stat span {
+
+    display: block;
+
+    margin-bottom: 7px;
+
+    color: #7180a4;
+
+    font-size: 11px;
+
+    text-transform: uppercase;
+
+}
+
+
+.attack-stat strong {
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    line-height: 1.5;
+
+}
+
+
+/* =========================================================
+   TIMELINE FOCUS
+   ========================================================= */
+
+.timeline-focused {
+
+    animation: timelineFocus 1.2s ease;
+
+}
+
+
+@keyframes timelineFocus {
+
+    0% {
+        box-shadow:
+            0 0 0 rgba(0, 217, 255, 0);
+    }
+
+    50% {
+        box-shadow:
+            0 0 35px rgba(0, 217, 255, 0.25);
+    }
+
+    100% {
+        box-shadow:
+            0 0 0 rgba(0, 217, 255, 0);
+    }
+
+}
+@media (max-width: 700px) {
+
+    .filter-actions {
+
+        width: 100%;
+
+        flex-direction: column;
+
+    }
+
+
+    .apply-filter-btn,
+    .reset-filter-btn {
+
+        width: 100%;
+
+    }
+
+
+    .filter-results-header {
+
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 12px;
+
+    }
+
+
+    .attack-card-header {
+
+        flex-direction: column;
+
+    }
+
+
+    .attack-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+
+    .attack-stat-grid {
+
+        grid-template-columns: 1fr;
+
+    }
+
+}
